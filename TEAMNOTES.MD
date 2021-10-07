@@ -1,30 +1,3 @@
-Meeting Date & Class : 10/5/21 
-What are the characteristics of the card?:
-    Theres a header, header block, and an icon. Theres also the body which contains the list. 
-
-What design considerations must we take into account?: 
-    Change the header, background colors, icons, what's in the body and the body content, change the size card (scalabilty).
-
-What accessibility concerns do we potentially have?
-    It has to be accesible via keyboard. We need to be able to tab to the button inside the card. The icon needs alt-text so you know what the icon is. A screenreader needs to be able to access the content within the card and be able to read it. It also needs to support color contrast and dark modes for visually impaired users. 
-
-What security concerns do we potentially have?
-    Does the website use HTTP or HTTPS? Are there any conerns with cross-site scripting? Can altered states and different states of the card could create vulnerabilities? 
-
-What "states" does this card have?
-    It should have a hover and focus state for when users either hover it with a mouse or tab over to it. Drop shadow or something light could be the hover state. Some form of diabled can be used. Needs states in order to be accessible by keyboard. Color, icon, and word have a relationship.
-
-What do we call it?
-    We would call this a "button-card" or "link-card". 
-
-What areas do we need to account for flexible content / HTML entry of any kind?
-    Any area with CSS or HTML properties could be subject to change, specifically the body text, the header text, the icon, the colors, the scalability, and the button text/button link.
-
-Do we have room for additional reusable atoms to be produced? (there are 4 total by my count)
-What should we call each of them?
-    Depending on how big our card is we probably would have room for reusable atoms to be produced. These atoms could be called things like "search," "labels," "button," and "input." Some examples are old-icon, old-science-card, odl-header, odl-card.
-
-
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
 ### Check-in 1
@@ -37,5 +10,48 @@ These are dedicated status check-ins as this is a multi-week project
 - 
 - 
 ### Check-in 4
-- 
-- 
+-
+-
+<br>
+<h2>Meeting Date & Class: 10/5/21 </h2>
+<br>
+<b>What are the characteristics of the card?</b>
+<br>
+    Theres a header, header block, and an icon. Theres also the body which contains the list. 
+<br>
+<br>
+<b>What design considerations must we take into account? </b>
+<br>
+    Change the header, background colors, icons, what's in the body and the body content, change the size card (scalabilty).
+<br>
+<br>
+<b>What accessibility concerns do we potentially have?</b>
+<br>
+  It has to be accesible via keyboard. We need to be able to tab to the button inside the card. The icon needs alt-text so you know what the icon is. A screenreader needs to be able to access the content within the card and be able to read it. It also needs to support color contrast and dark modes for visually impaired users. 
+<br>
+<br>
+<b>What security concerns do we potentially have? </b>
+<br>
+  Does the website use HTTP or HTTPS? Are there any conerns with cross-site scripting? Can altered states and different states of the card could create vulnerabilities? 
+<br>
+<br>
+<b>What "states" does this card have? </b>
+<br>
+  It should have a hover and focus state for when users either hover it with a mouse or tab over to it. Drop shadow or something light could be the hover state. Some form of diabled can be used. Needs states in order to be accessible by keyboard. Color, icon, and word have a relationship.
+<br>
+<br>
+<b>What do we call it?</b>
+<br>
+    We would call this a "button-card" or "link-card". 
+<br>
+<br>
+<b>What areas do we need to account for flexible content / HTML entry of any kind?</b>
+<br>
+    Any area with CSS or HTML properties could be subject to change, specifically the body text, the header text, the icon, the colors, the scalability, and the button text/button link.
+<br>
+<br>
+<b>Do we have room for additional reusable atoms to be produced? (there are 4 total by my count)
+What should we call each of them?</b>
+<br>
+    Depending on how big our card is we probably would have room for reusable atoms to be produced. These atoms could be called things like "search," "labels," "button," and "input." Some examples are old-icon, old-science-card, odl-header, odl-card.
+
