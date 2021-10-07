@@ -3,21 +3,24 @@ These are dedicated status check-ins as this is a multi-week project
 ### Check-in 1
 - Possible names of these 4 elements 
   1. link-icon
-  2.  link-science-card
-  3.  link-header
-  4.  link-card
+  2. link-science-card
+  3. link-header
+  4. link-card
 - Properties
   1. Change the color
   2. Change the icon
-  3. Zoom in on hover
+  3. Dark mode
+  4. Zoom in on hover
+  5. Mobile consideration, drop down to body
 - Additional design considerations
   1. Translation
   2. Contrast
+  3. Scalability
 - Next steps
-  1. Hannah - Edit the card
-  2. Taylor - Edit the card more
-  3. Evan - Edit the card the most
-  4. Colton - Edit the card again
+  1. Hannah - Work on dark mode 
+  2. Taylor - Fix hover property to drop shadow or zoom in
+  3. Evan - Look into mobile consideration
+  4. Colton - Change color and icon
 ### Check-in 2
 - 
 - 
