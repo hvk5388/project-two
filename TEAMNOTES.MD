@@ -1,8 +1,23 @@
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
 ### Check-in 1
-- 
-- 
+- Possible names of these 4 elements 
+  1. link-icon
+  2.  link-science-card
+  3.  link-header
+  4.  link-card
+- Properties
+  1. Change the color
+  2. Change the icon
+  3. Zoom in on hover
+- Additional design considerations
+  1. Translation
+  2. Contrast
+- Next steps
+  1. Hannah - Edit the card
+  2. Taylor - Edit the card more
+  3. Evan - Edit the card the most
+  4. Colton - Edit the card again
 ### Check-in 2
 - 
 - 
@@ -53,5 +68,5 @@ These are dedicated status check-ins as this is a multi-week project
 <b>Do we have room for additional reusable atoms to be produced? (there are 4 total by my count)
 What should we call each of them?</b>
 <br>
-    Depending on how big our card is we probably would have room for reusable atoms to be produced. These atoms could be called things like "search," "labels," "button," and "input." Some examples are old-icon, old-science-card, odl-header, odl-card.
+    Depending on how big our card is we probably would have room for reusable atoms to be produced. These atoms could be called things like "search," "labels," "button," and "input." Some examples are odl-icon, odl-science-card, odl-header, odl-card.
 
