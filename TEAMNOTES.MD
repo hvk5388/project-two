@@ -26,6 +26,8 @@ What should we call each of them?
 
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
+
+MEDIA QUERY/Device orientation. 
 ### Check-in 1
 - 
 - 
