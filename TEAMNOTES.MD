@@ -20,7 +20,7 @@ These are dedicated status check-ins as this is a multi-week project
   1. Hannah - Work on dark mode 
   2. Taylor - Fix hover property to drop shadow or zoom in
   3. Evan - Look into mobile consideration
-  4. Colton - Change color and icon
+  4. Colton - Change color and icon. Doing a test
 ### Check-in 2
 - 
 - 
