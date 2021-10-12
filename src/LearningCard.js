@@ -1,5 +1,6 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
+import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
@@ -9,7 +10,7 @@ import { LitElement, html, css } from 'lit';
 const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
-export class LearningCard extends LitElement {
+export class LearningCard extends IntersectionObserverMixin(LitElement){
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
     return 'learning-card';
