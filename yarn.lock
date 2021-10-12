@@ -1794,45 +1794,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lrnwebcomponents/project-two@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@lrnwebcomponents/project-two@workspace:."
-  dependencies:
-    "@babel/preset-env": ^7.15.6
-    "@custom-elements-manifest/analyzer": ^0.4.17
-    "@lrnwebcomponents/deduping-fix": ^4.0.0
-    "@lrnwebcomponents/grid-plate": ^4.0.1
-    "@lrnwebcomponents/h-a-x": ^4.0.3
-    "@lrnwebcomponents/meme-maker": ^4.0.1
-    "@lrnwebcomponents/simple-colors": ^4.0.1
-    "@lrnwebcomponents/wikipedia-query": ^4.0.1
-    "@open-wc/building-rollup": ^1.10.0
-    "@open-wc/eslint-config": ^4.3.0
-    "@open-wc/testing": next
-    "@rollup/plugin-babel": ^5.3.0
-    "@rollup/plugin-node-resolve": ^13.0.5
-    "@web/dev-server": ^0.1.24
-    "@web/dev-server-storybook": next
-    "@web/rollup-plugin-html": ^1.10.1
-    "@web/rollup-plugin-import-meta-assets": ^1.0.7
-    "@web/test-runner": ^0.13.18
-    "@webcomponents/webcomponentsjs": 2.6.0
-    babel-plugin-template-html-minifier: ^4.1.0
-    deepmerge: ^4.2.2
-    eslint: ^7.32.0
-    eslint-config-prettier: ^8.3.0
-    husky: ^4.3.8
-    lint-staged: ^10.5.4
-    lit: ^2.0.0
-    prettier: ^2.4.1
-    rimraf: ^3.0.2
-    rollup: ^2.58.0
-    rollup-plugin-terser: ^7.0.2
-    rollup-plugin-workbox: ^6.2.0
-    web-animations-js: 2.3.2
-  languageName: unknown
-  linkType: soft
-
 "@lrnwebcomponents/responsive-grid@npm:^4.0.1":
   version: 4.0.1
   resolution: "@lrnwebcomponents/responsive-grid@npm:4.0.1"
@@ -2690,6 +2651,45 @@ __metadata:
   checksum: da721792036a0e1253911f9b5280e6cb236024d7d2255bde3b6e87587c0ea8f46404224c8c032a27ee11ab3244eda752587fb37ec78c2e64eb53e10557373102
   languageName: node
   linkType: hard
+
+"@thekodingkrab/project-two@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@thekodingkrab/project-two@workspace:."
+  dependencies:
+    "@babel/preset-env": ^7.15.6
+    "@custom-elements-manifest/analyzer": ^0.4.17
+    "@lrnwebcomponents/deduping-fix": ^4.0.0
+    "@lrnwebcomponents/grid-plate": ^4.0.1
+    "@lrnwebcomponents/h-a-x": ^4.0.3
+    "@lrnwebcomponents/meme-maker": ^4.0.1
+    "@lrnwebcomponents/simple-colors": ^4.0.1
+    "@lrnwebcomponents/wikipedia-query": ^4.0.1
+    "@open-wc/building-rollup": ^1.10.0
+    "@open-wc/eslint-config": ^4.3.0
+    "@open-wc/testing": next
+    "@rollup/plugin-babel": ^5.3.0
+    "@rollup/plugin-node-resolve": ^13.0.5
+    "@web/dev-server": ^0.1.24
+    "@web/dev-server-storybook": next
+    "@web/rollup-plugin-html": ^1.10.1
+    "@web/rollup-plugin-import-meta-assets": ^1.0.7
+    "@web/test-runner": ^0.13.18
+    "@webcomponents/webcomponentsjs": 2.6.0
+    babel-plugin-template-html-minifier: ^4.1.0
+    deepmerge: ^4.2.2
+    eslint: ^7.32.0
+    eslint-config-prettier: ^8.3.0
+    husky: ^4.3.8
+    lint-staged: ^10.5.4
+    lit: ^2.0.0
+    prettier: ^2.4.1
+    rimraf: ^3.0.2
+    rollup: ^2.58.0
+    rollup-plugin-terser: ^7.0.2
+    rollup-plugin-workbox: ^6.2.0
+    web-animations-js: 2.3.2
+  languageName: unknown
+  linkType: soft
 
 "@tootallnate/once@npm:1":
   version: 1.1.2
