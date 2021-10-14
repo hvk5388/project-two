@@ -79,22 +79,23 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
   }
   // HTML - specific to Lit
   render() {
-    return html`
-    <h1>cool</h1>
-    <div>${this.type}</div>
-    <div>
-      <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
-        <slot name="header"></slot>
-      </div>
-      <img part="icon" src="${beaker}" alt=""/>
-      <img part="icon" src="${lightbulb}" />
-      <img part="icon" src="${question}" alt=""/>
-      <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
-        <slot name="content"></slot>
-        <slot></slot>
-      </div>
-    </div>
-    `;
+    return html` ${this.elementVisible
+    ? html`
+      <h1>cool</h1>
+      <div>${this.type}</div>
+      <div>
+        <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
+          <slot name="header"></slot>
+        </div>
+        <img part="icon" src="${beaker}" alt=""/>
+        <img part="icon" src="${lightbulb}" />
+        <img part="icon" src="${question}" alt=""/>
+        <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
+          <slot name="content"></slot>
+          <slot></slot>
+        </div>
+      </div>`
+    : ``}`;
   }
   // HAX specific callback
   // This teaches HAX how to edit and work with your web component
