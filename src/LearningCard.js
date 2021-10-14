@@ -84,6 +84,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
     <h1>cool</h1>
     <div>${this.type}</div>
     <div>
+     <learning-header> Test the Header </learning-header>
       <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
         <slot name="header"></slot>
       </div>

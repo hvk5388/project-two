@@ -1,4 +1,4 @@
-//git import {LitElements, html, css} from "lit";
+import {LitElement, html, css} from "lit";
 import {SimpleColors} from "@lrnwebcomponents/simple-colors/simple-colors.js"
 export class LearningHeader extends SimpleColors{
 
@@ -24,12 +24,12 @@ export class LearningHeader extends SimpleColors{
             :host{
                 display: block;
                 background-color: var (--simple-colors-default-theme-accent-1);
-                color: "black";
+                color: black;
             }`
         ];
     }
     render() {
-        return html` <div>This is my header<slot></slot></div>`;
+        return html` <div><slot></slot></div>`;
     }
 
 }
