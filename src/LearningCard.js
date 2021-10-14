@@ -1,5 +1,6 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
+import "./learning-header.js";
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 // this is the base path to the assets calculated at run time
@@ -84,6 +85,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
       <h1>cool</h1>
       <div>${this.type}</div>
       <div>
+        <learning-header> Test the Header </learning-header>
         <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
           <slot name="header"></slot>
         </div>

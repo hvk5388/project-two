@@ -22,8 +22,15 @@ These are dedicated status check-ins as this is a multi-week project
   3. Evan - Look into mobile consideration
   4. Colton - Change color and icon. Doing a test
 ### Check-in 2
-- 
-- 
+- What did you take away from the portion of class about implementing SimpleColors?
+  1. By watching the example on implementing simple colors the project itself became a lot more clear. We learned more about the scope of the card and how to make each element a seperate file. We also got to see an example that showed being able to extend more classes into the project is important.
+- What did you learn from other groups?
+  1. We learned the importance of breaking up the elements into files.
+- Next steps
+  1. Hannah - implement intersection observer
+  2. Taylor - leverage the icon's basic API
+  3. Evan - implent the two named slots
+  4. Colton - allow for dynamic imports
 ### Check-in 3
 - 
 - 
