@@ -17,15 +17,6 @@
     .wrapper {
       margin: 100px;
     }
-    .menu {
-      display: flex;
-      justify-content: space-evenly;
-    }
-    .menu li {
-      display: inline-flex;
-      font-weight: bold;
-      padding: 40px;
-    }
     learning-card.two::part(icon) {
       --learning-card-height: 150px;
       --learning-card-width: 150px;
@@ -36,19 +27,12 @@
       height: 200px;
     }
   </style>
-  <title>Project two: learning card</title>
+  <title>Project Two: Card</title>
 </head>
 
 <body>
-  <ul class="menu">
-    <li><a href="#">Card demo</a></li>
-    <li><a href="/hax.html">HAX, card demo</a></li>
-  </ul>
   <div class="wrapper">
     <learning-card class="one"></learning-card>
-    <learning-card class="two"></learning-card>
-    <p slot="header">Card HEADER</p>
-    <learning-card type="science"></learning-card>
   </div>
   <script type="module">
     import "./src/app.js";

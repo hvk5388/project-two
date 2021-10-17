@@ -2661,6 +2661,7 @@ __metadata:
     "@lrnwebcomponents/deduping-fix": ^4.0.0
     "@lrnwebcomponents/grid-plate": ^4.0.1
     "@lrnwebcomponents/h-a-x": ^4.0.3
+    "@lrnwebcomponents/intersection-element": ^4.0.0
     "@lrnwebcomponents/meme-maker": ^4.0.1
     "@lrnwebcomponents/simple-colors": ^4.0.1
     "@lrnwebcomponents/wikipedia-query": ^4.0.1
