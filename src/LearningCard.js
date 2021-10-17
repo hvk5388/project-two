@@ -1,5 +1,7 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
+import "learning-header.js";  
+import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
@@ -7,11 +9,9 @@ import { LitElement, html, css } from 'lit';
 // because this won't change we can leverage as an internal variable without being
 // declared in properties. This let's us ship the icons while referencing them correctly
 const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
-const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
-const question = new URL('../assets/question.svg', import.meta.url).href;
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
-export class LearningCard extends LitElement {
+export class LearningCard extends IntersectionObserverMixin(LitElement){
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
     return 'learning-card';
@@ -44,9 +44,9 @@ export class LearningCard extends LitElement {
       }
     });
   }
+
   // Lit life-cycle; this fires the 1st time the element is rendered on the screen
   // this is a sign it is safe to make calls to this.shadowRoot
-
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
@@ -58,14 +58,14 @@ export class LearningCard extends LitElement {
   connectedCallback() {
     super.connectedCallback();
   }
+
   // HTMLElement life-cycle, element has been removed from the page OR moved
   // this fires every time the element moves
-
   disconnectedCallback() {
     super.disconnectedCallback();
   }
-  // CSS - specific to Lit
 
+  // CSS - specific to Lit
   static get styles() {
     return css`
       :host {
@@ -86,30 +86,41 @@ export class LearningCard extends LitElement {
 
   // HTML - specific to Lit
   render() {
-    return html`
+    return html` ${this.elementVisible
+    ? html`
       <h1>cool</h1>
       <div>${this.type}</div>
       <div>
-        <div
-          class="slot-wrapper"
-          data-label="Header"
-          data-layout-slotname="header"
-        >
+      <learning-header> Test the Header </learning-header>
+        <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
           <slot name="header"></slot>
         </div>
-        <img part="icon" src="${beaker}" alt="" />
-        <img part="icon" src="${lightbulb}" alt="" />
-        <img part="icon" src="${question}" alt="" />
-        <div
-          class="slot-wrapper"
-          data-label="Content"
-          data-layout-slotname="content"
-        >
+        <img part="icon" src="${beaker}" alt=""/>
+        <img part="icon" src="${lightbulb}" />
+        <img part="icon" src="${question}" alt=""/>
+        <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
           <slot name="content"></slot>
           <slot></slot>
+        <h1>Project 2: Card</h1>
+        <div>
+          <div
+            class="slot-wrapper"
+            data-label="Header"
+            data-layout-slotname="header"
+          >
+            <slot name="header"></slot>
+          </div>
+          <img part="icon" src="${beaker}" alt="" />
+          <div
+            class="slot-wrapper"
+            data-label="Content"
+            data-layout-slotname="content"
+          >
+            <slot name="content"></slot>
+            <slot></slot>
+          </div>
         </div>
-      </div>
-    `;
+      `:``}`
   }
 
   // HAX specific callback
