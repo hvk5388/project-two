@@ -8,9 +8,9 @@ export class LearningHeader extends SimpleColors {
 
   constructor() {
     super();
-    this.accentColor = 'pink';
+    this.accentColor = 'blue';
     this.dark = false;
-    this.title = 'Stuff';
+    this.title = 'What da dog doin??';
   }
 
   static get properties() {
