@@ -24,7 +24,7 @@ export class LearningHeader extends SimpleColors{
             :host{
                 display: block;
                 background-color: var (--simple-colors-default-theme-accent-1);
-                color: black;
+                color: var ();
             }`
         ];
     }

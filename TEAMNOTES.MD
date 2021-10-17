@@ -79,4 +79,9 @@ These are dedicated status check-ins as this is a multi-week project
 What should we call each of them?</b>
 <br>
     Depending on how big our card is we probably would have room for reusable atoms to be produced. These atoms could be called things like "search," "labels," "button," and "input." Some examples are odl-icon, odl-science-card, odl-header, odl-card.
+    
+    ##Meeting Date & Class: 10/14/21 ##
+    What we learned from SimpleColors: Even though the name says "simple" it's not that simple. Rather than setting individual CSS variables for all our properties we can set them with Simple Colors. 
+    Notes from other groups: Other groups are working on each individual element first like the header, banner, icon, and scaffolding. 
+    Next Steps: Our next steps are to get the icons and banners working with functional APIs. 
 
