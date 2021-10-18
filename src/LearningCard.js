@@ -8,11 +8,14 @@ import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-elemen
 // on github pages, or when people reuse assets outside your elements in production
 // because this won't change we can leverage as an internal variable without being
 // declared in properties. This let's us ship the icons while referencing them correctly
+
 const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 const lightbulb = new URL('../assets/lighbulb.svg', import.meta.url).href;
 const question = new URL('../assets/question.svg', import.meta.url).href;
+
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
+
 export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
