@@ -1,9 +1,9 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 
-export class LearningHeader extends SimpleColors {
+export class LearningSubHeader extends SimpleColors {
   static get tag() {
-    return 'learning-header';
+    return 'learning-sub-header';
   }
 
   constructor() {
@@ -25,10 +25,11 @@ export class LearningHeader extends SimpleColors {
       ...super.styles,
       css`
         :host {
-          display: inline-block;
+          display: block;
           background-color: var (--simple-colors-default-theme-accent-1);
           color: var (--simple-colors-default-theme-accent-1);
-          font-size: 40pt;
+          font-size: 30pt;
+          padding-left: var(--learning-card-width, 100px);
         }
       `,
     ];
@@ -38,4 +39,4 @@ export class LearningHeader extends SimpleColors {
     return html` <div><slot></slot></div>`;
   }
 }
-window.customElements.define(LearningHeader.tag, LearningHeader);
+window.customElements.define(LearningSubHeader.tag, LearningSubHeader);
