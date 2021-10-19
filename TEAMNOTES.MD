@@ -29,7 +29,7 @@ These are dedicated status check-ins as this is a multi-week project
 - Next steps
   1. Hannah - implement intersection observer
   2. Taylor - leverage the icon's basic API
-  3. Evan - implent the two named slots
+  3. Evan - implement the two named slots
   4. Colton - allow for dynamic imports
 
   Worked on adding different elements, such as the header, subheader, and icon on the page. Were having issues with merging/pulling/pushing to github since we 
@@ -37,13 +37,13 @@ These are dedicated status check-ins as this is a multi-week project
   to be brought up during the week and in-class during demonstrations.
 
   What you learned from the example Chuck presented.
-
+  Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
   What approaches can you leverage from his example to enhance your team's element?
-
+Making different card types and leverage stuff from one card to the next.
   How could you take his approach and envision a more flexible version?
-
+  We can tie in what other groups are trying to do and also check out Chuck's element to see how we can wire up different styles and functionality.
   What are your next steps?
-
+  Continue working on getting the files separated and leverage other people's code to get us help. 
 ### Check-in 3
 - 
 - 
