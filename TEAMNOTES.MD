@@ -1,5 +1,16 @@
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
+
+### Class: 10/19/21 
+What you learned from the example Chuck presented.
+  Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
+  What approaches can you leverage from his example to enhance your team's element?
+Making different card types and leverage stuff from one card to the next.
+  How could you take his approach and envision a more flexible version?
+  We can tie in what other groups are trying to do and also check out Chuck's element to see how we can wire up different styles and functionality.
+  Add different dynamics and styles
+  What are your next steps?
+  Continue working on getting the files separated and leverage other people's code to get us help and Chuck's code.
 ### Check-in 1
 - Possible names of these 4 elements 
   1. link-icon
