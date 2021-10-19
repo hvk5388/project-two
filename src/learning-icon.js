@@ -7,7 +7,7 @@ const question = new URL('../assets/question.svg', import.meta.url).href;
 
 export class LearningIcon extends SimpleColors {
   static get tag() {
-    return 'slime-icon';
+    return 'learning-icon';
   }
 
   static get styles() {
@@ -74,7 +74,7 @@ export class LearningIcon extends SimpleColors {
   render() {
     console.log(this.bgColor);
     return html`
-      <div id="slime-icon-container">
+      <div id="learning-icon-container">
         <img
           part="icon"
           src="${this.icon_value.get(this.type)}"
