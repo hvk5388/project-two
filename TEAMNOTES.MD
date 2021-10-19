@@ -31,6 +31,10 @@ These are dedicated status check-ins as this is a multi-week project
   2. Taylor - leverage the icon's basic API
   3. Evan - implent the two named slots
   4. Colton - allow for dynamic imports
+
+  Worked on adding different elements, such as the header, subheader, and icon on the page. Were having issues with merging/pulling/pushing to github since we 
+  are working through one repo. Most of the stuff is there, just need to reorganize and make it appear more visually appealing. More work and questions
+  to be brought up during the week and in-class during demonstrations.
 ### Check-in 3
 - 
 - 
