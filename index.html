@@ -14,8 +14,20 @@
       padding: 50px;
       font-family: sans-serif;
     }
+    h1{white-space: nowrap;}
+    
     .wrapper {
       margin: 100px;
+    }
+    .menu{
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .menu li {
+      display: inline-flex;
+      font-weight: bold;
+      padding: 40px;
     }
     learning-card.two::part(icon) {
       --learning-card-height: 150px;
@@ -26,11 +38,24 @@
       width: 200px;
       height: 200px;
     }
+
+    .element-showcase {
+      display: block;
+      height: 200px;
+      width: 200px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
   </style>
   <title>Project Two: Card</title>
 </head>
 
 <body>
+  <ul class = "menu">
+    <li><a href = "#" >Card demo</a></li>
+    <li><a href = "/hax.html">HAX DEMO</a></li>
+    </ul>
   <div class="wrapper">
     <learning-card class="one"></learning-card>
   </div>
