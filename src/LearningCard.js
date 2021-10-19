@@ -1,7 +1,7 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
-import "./learning-header.js";
-import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
+import './learning-header.js';
+import './learning-sub-header.js';
 
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
@@ -11,7 +11,7 @@ import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-elemen
 const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
-export class LearningCard extends IntersectionObserverMixin(LitElement){
+export class LearningCard extends LitElement {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
     return 'learning-card';
@@ -81,46 +81,56 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
         width: var(--learning-card-width, 100px);
         background-color: green;
       }
+      .slot-wrapper {
+        border: 1px solid #000000;
+        background-color: purple;
+      }
     `;
   }
 
   // HTML - specific to Lit
   render() {
-    return html` ${this.elementVisible
-    ? html`
-      <h1>cool</h1>
-      <div>${this.type}</div>
+    return html`
       <div>
-      <learning-header> Test the Header </learning-header>
-        <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
-          <slot name="header"></slot>
+        <div
+          class="slot-wrapper"
+          data-label="Header"
+          data-layout-slotname="header"
+        >
+          <slot name="header">
+            <img part="icon" src="${beaker}" alt="" />
+            <learning-header>This is the Header </learning-header>
+            <learning-sub-header>This is the sub header </learning-sub-header>
+          </slot>
         </div>
-        <img part="icon" src="${beaker}" alt=""/>
-        <img part="icon" src="${lightbulb}" />
-        <img part="icon" src="${question}" alt=""/>
-        <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
+        <div
+          class="slot-wrapper"
+          data-label="Content"
+          data-layout-slotname="content"
+        >
           <slot name="content"></slot>
           <slot></slot>
-        <h1>Project 2: Card</h1>
-        <div>
-          <div
-            class="slot-wrapper"
-            data-label="Header"
-            data-layout-slotname="header"
-          >
-            <slot name="header"></slot>
-          </div>
-          <img part="icon" src="${beaker}" alt="" />
-          <div
-            class="slot-wrapper"
-            data-label="Content"
-            data-layout-slotname="content"
-          >
-            <slot name="content"></slot>
-            <slot></slot>
+          <h1>Project 2: Card</h1>
+          <div>
+            <div
+              class="slot-wrapper"
+              data-label="Header"
+              data-layout-slotname="header"
+            >
+              <slot name="header"></slot>
+            </div>
+            <div
+              class="slot-wrapper"
+              data-label="Content"
+              data-layout-slotname="content"
+            >
+              <slot name="content"></slot>
+              <slot></slot>
+            </div>
           </div>
         </div>
-      `:``}`
+      </div>
+    `;
   }
 
   // HAX specific callback
