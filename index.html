@@ -29,6 +29,20 @@
       font-weight: bold;
       padding: 40px;
     }
+
+    lrn-card[type = "objective"]::part(banner) {
+      background-color: chartreuse;
+    }
+
+    lrn-card[type = "science"]::part(banner) {
+      background-color: rgb(64, 47, 218);
+    }
+
+    lrn-card[type = "fact"]::part(banner) {
+      background-color: rgb(250, 60, 2);
+    }
+
+
     learning-card.two::part(icon) {
       --learning-card-height: 150px;
       --learning-card-width: 150px;
@@ -37,6 +51,13 @@
     learning-card[type="science"]::part(icon) {
       width: 200px;
       height: 200px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      lrn-card {
+        display: flex;
+        flex-direction: row;
+      }
     }
 
     .element-showcase {
@@ -48,7 +69,7 @@
     }
 
   </style>
-  <title>Project Two: Card</title>
+  <title>Project Two: Bababooey Card</title>
 </head>
 
 <body>
@@ -57,6 +78,9 @@
     <li><a href = "/hax.html">HAX DEMO</a></li>
     </ul>
   <div class="wrapper">
+    <lrn-card type = "objective"></lrn-card>
+    <lrn-card type = "science"></lrn-card>
+    <lrn-card type = "fact"></lrn-card>
     <learning-card class="one"></learning-card>
   </div>
   <script type="module">
