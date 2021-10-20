@@ -29,6 +29,11 @@ export class LearningIcon extends SimpleColors {
           width: var(--lrn-card-width, 150px);
           background-color: transparent;
         }
+
+        #banner {
+          display: flex;
+          flex-direction: row;
+        }
       `,
     ];
   }
@@ -37,7 +42,6 @@ export class LearningIcon extends SimpleColors {
     return {
       ...super.properties,
       type: { type: String, reflect: true },
-      icon_value: { type: Map },
       lrnIcon: { type: String, attribute: 'lrn-icon' },
       iconScale: { type: String, attribute: 'icon-scale', reflect: true },
       bgColor: { type: String, attribute: 'bg-color', reflect: true },
@@ -48,12 +52,12 @@ export class LearningIcon extends SimpleColors {
     super();
     this.type = 'math';
     this.iconScale = 'inherit';
-    this.icon_value = new Map();
     this.icon_value.set('math', lightbulb);
     this.icon_value.set('science', beaker);
     this.icon_value.set('question', question);
-    this.bgColor = 'grey';
     this.style.backgroundColor = 'yellow';
+    this.dark = false;
+    this.accentColor = 'green';
   }
 
   updated(changedProperties) {
@@ -70,7 +74,7 @@ export class LearningIcon extends SimpleColors {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
       this.style.setProperty('--icon-scale', this.iconScale);
-      this.style.backgroundColor = 'olue';
+      this.style.backgroundColor = 'blue';
     }
   }
 
@@ -83,9 +87,8 @@ export class LearningIcon extends SimpleColors {
   }
 
   render() {
-    console.log(this.bgColor);
     return html`
-      <div id="learning-icon-container">
+      <div id="banner">
         <img
           part="icon"
           src="${this.icon_value.get(this.type)}"
