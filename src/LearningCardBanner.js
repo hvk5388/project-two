@@ -118,6 +118,10 @@ export class LearningCardBanner extends SimpleColors {
           </div>
         </div>
       </div>
+  </div>
+  <script type = "module">
+      import './src/app.js';
+  </script>
     `;
   }
 }
