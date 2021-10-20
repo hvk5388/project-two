@@ -16,9 +16,18 @@ export class LearningIcon extends SimpleColors {
       css`
         :host {
           display: inline-block;
+          --lrn-card-banner-color1: red;
+          --lrn-card-banner-color2: white;
+          --lrn-card-banner-color3: green;
           height: var(--icon-scale, inherit);
           width: var(--icon-scale, inherit);
           position: absolute;
+        }
+        image {
+          display: inline-flex;
+          height: var(--lrn-card-height, 150px);
+          width: var(--lrn-card-width, 150px);
+          background-color: transparent;
         }
       `,
     ];
@@ -26,8 +35,10 @@ export class LearningIcon extends SimpleColors {
 
   static get properties() {
     return {
+      ...super.properties,
       type: { type: String, reflect: true },
       icon_value: { type: Map },
+      lrnIcon: { type: String, attribute: 'lrn-icon' },
       iconScale: { type: String, attribute: 'icon-scale', reflect: true },
       bgColor: { type: String, attribute: 'bg-color', reflect: true },
     };
