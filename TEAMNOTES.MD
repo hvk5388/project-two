@@ -1,5 +1,8 @@
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
+
+ 
+
 ### Check-in 1
 - Possible names of these 4 elements 
   1. link-icon
@@ -84,3 +87,6 @@ What should we call each of them?</b>
     What we learned from SimpleColors: Even though the name says "simple" it's not that simple. Rather than setting individual CSS variables for all our properties we can set them with Simple Colors. 
     Notes from other groups: Other groups are working on each individual element first like the header, banner, icon, and scaffolding. 
     Next Steps: Our next steps are to get the icons and banners working with functional APIs. 
+
+
+   

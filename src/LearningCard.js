@@ -71,6 +71,8 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   }
 
   // CSS - specific to Lit
+  // CSS MEDIA QUERIES!!!
+  // Pixel based, development?!
   static get styles() {
     return css`
       :host {
