@@ -89,11 +89,7 @@ export class LearningIcon extends SimpleColors {
   render() {
     return html`
       <div id="banner">
-        <img
-          part="icon"
-          src="${this.icon_value.get(this.type)}"
-          alt="learning card icon"
-        />
+        <img part="icon" src="${question}" alt="" />
       </div>
     `;
   }
