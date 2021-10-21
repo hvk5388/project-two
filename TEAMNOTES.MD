@@ -1,6 +1,9 @@
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
 
+ 
+
+=======
 ### Class: 10/19/21 
 What you learned from the example Chuck presented.
   Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
@@ -40,6 +43,8 @@ Making different card types and leverage stuff from one card to the next.
 - Next steps
   1. Hannah - implement intersection observer
   2. Taylor - leverage the icon's basic API
+  3. Evan - implent the two named slots
+  4. Colton - allow for dynamic imports
   3. Evan - implement the two named slots
   4. Colton - allow for dynamic imports
 
@@ -109,3 +114,4 @@ What should we call each of them?</b>
     Notes from other groups: Other groups are working on each individual element first like the header, banner, icon, and scaffolding. 
     Next Steps: Our next steps are to get the icons and banners working with functional APIs. 
 
+   
