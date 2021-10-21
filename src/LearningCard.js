@@ -2,6 +2,8 @@
 import { LitElement, html, css } from 'lit';
 import './LearningCardBanner.js';
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
+import './learning-header.js';
+import './learning-sub-header.js';
 
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
@@ -105,6 +107,28 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
           <div>${this.type}</div>
           <div>
             <learning-header> Test the Header </learning-header>
+    return html`
+      <div>
+        <div
+          class="slot-wrapper"
+          data-label="Header"
+          data-layout-slotname="header"
+        >
+          <slot name="header">
+            <img part="icon" src="${beaker}" alt="" />
+            <learning-header>This is the Header </learning-header>
+            <learning-sub-header>This is the sub header </learning-sub-header>
+          </slot>
+        </div>
+        <div
+          class="slot-wrapper"
+          data-label="Content"
+          data-layout-slotname="content"
+        >
+          <slot name="content"></slot>
+          <slot></slot>
+          <h1>Project 2: Card</h1>
+          <div>
             <div
               class="slot-wrapper"
               data-label="Header"
@@ -122,7 +146,6 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
             >
               <slot name="content"></slot>
               <slot></slot>
-
               <h1>Project 2: Figure out the fucking lightbulb</h1>
               <div>
                 <div
@@ -148,6 +171,11 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
           </div>
         `
       : ``}`;
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   // HAX specific callback

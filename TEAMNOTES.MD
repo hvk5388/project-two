@@ -3,6 +3,17 @@ These are dedicated status check-ins as this is a multi-week project
 
  
 
+=======
+### Class: 10/19/21 
+What you learned from the example Chuck presented.
+  Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
+  What approaches can you leverage from his example to enhance your team's element?
+Making different card types and leverage stuff from one card to the next.
+  How could you take his approach and envision a more flexible version?
+  We can tie in what other groups are trying to do and also check out Chuck's element to see how we can wire up different styles and functionality.
+  Add different dynamics and styles
+  What are your next steps?
+  Continue working on getting the files separated and leverage other people's code to get us help and Chuck's code.
 ### Check-in 1
 - Possible names of these 4 elements 
   1. link-icon
@@ -34,6 +45,21 @@ These are dedicated status check-ins as this is a multi-week project
   2. Taylor - leverage the icon's basic API
   3. Evan - implent the two named slots
   4. Colton - allow for dynamic imports
+  3. Evan - implement the two named slots
+  4. Colton - allow for dynamic imports
+
+  Worked on adding different elements, such as the header, subheader, and icon on the page. Were having issues with merging/pulling/pushing to github since we 
+  are working through one repo. Most of the stuff is there, just need to reorganize and make it appear more visually appealing. More work and questions
+  to be brought up during the week and in-class during demonstrations.
+
+  What you learned from the example Chuck presented.
+  Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
+  What approaches can you leverage from his example to enhance your team's element?
+Making different card types and leverage stuff from one card to the next.
+  How could you take his approach and envision a more flexible version?
+  We can tie in what other groups are trying to do and also check out Chuck's element to see how we can wire up different styles and functionality.
+  What are your next steps?
+  Continue working on getting the files separated and leverage other people's code to get us help. 
 ### Check-in 3
 - 
 - 
@@ -87,6 +113,5 @@ What should we call each of them?</b>
     What we learned from SimpleColors: Even though the name says "simple" it's not that simple. Rather than setting individual CSS variables for all our properties we can set them with Simple Colors. 
     Notes from other groups: Other groups are working on each individual element first like the header, banner, icon, and scaffolding. 
     Next Steps: Our next steps are to get the icons and banners working with functional APIs. 
-
 
    
