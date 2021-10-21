@@ -73,6 +73,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // CSS - specific to Lit
   // CSS MEDIA QUERIES!!!
   // Pixel based, development?!
+  // Render all tags and stlye img in styles???
   static get styles() {
     return css`
       :host {
@@ -87,6 +88,10 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
         height: var(--learning-card-height, 100px);
         width: var(--learning-card-width, 100px);
         background-color: green;
+      }
+      .slot-wrapper {
+        border: 1px solid #000000;
+        background-color: purple;
       }
     `;
   }
@@ -117,7 +122,8 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
             >
               <slot name="content"></slot>
               <slot></slot>
-              <h1>Project 2: Card</h1>
+
+              <h1>Project 2: Figure out the fucking lightbulb</h1>
               <div>
                 <div
                   class="slot-wrapper"
@@ -126,9 +132,9 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
                 >
                   <slot name="header"></slot>
                 </div>
-                <img part="icon" src="${beaker}" alt="" />
                 <img part="icon" src="${lightbulb}" alt="" />
-                <img part="icon" src="${question}" alt="" />
+                <img part="icon" src="${lightbulb}" alt="" />
+                <img part="icon" src="${lightbulb}" alt="" />
                 <div
                   class="slot-wrapper"
                   data-label="Content"
