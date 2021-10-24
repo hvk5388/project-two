@@ -115,11 +115,9 @@ export class LrnCard extends SimpleColors {
       <div id="cardFrame">
         <details>
           <summary @click="${this._rotateIcon}" part="banner">
-            <div
-              class="slot-wrapper"
-              data-label="Header"
+            <div>
+              class="slot-wrapper" data-label="Header"
               data-layout-slotname="header"
-            >
               <slot name="header"></slot>
             </div>
             <learning-card-banner>

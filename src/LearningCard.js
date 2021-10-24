@@ -46,8 +46,17 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // this allows you to react to variables changing and use javascript to perform logic
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'objective') {
+        this.icon = 'lightbulb';
+        this.subheading = 'Learning Objectives';
+      }
       if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'beaker';
+        this.icon = 'beaker';
+        this.subheading = 'Chem Connection';
+      }
+      if (propName === 'type' && this[propName] === 'question') {
+        this.icon = 'question';
+        this.subheading = 'Did You Know?';
       }
     });
   }
@@ -117,10 +126,10 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
                 >
                   <slot name="header">
                     <img part="icon" src="${beaker}" alt="" />
-                    <learning-header>This is the Header </learning-header>
+                    <learning-header>This is the Header</learning-header>
                     <learning-sub-header
-                      >This is the sub header
-                    </learning-sub-header>
+                      >This is the sub header</learning-sub-header
+                    >
                   </slot>
                 </div>
                 <div
@@ -139,7 +148,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
                     >
                       <slot name="header"></slot>
                     </div>
-                    <img part="icon" src="${beaker}" alt="" />
+                    <img part="micon" src="${beaker}" alt="" />
                     <img part="icon" src="${lightbulb}" alt="" />
                     <img part="icon" src="${question}" alt="" />
                     <div
