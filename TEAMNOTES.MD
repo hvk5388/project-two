@@ -59,12 +59,13 @@ Making different card types and leverage stuff from one card to the next.
   What are your next steps?
   Continue working on getting the files separated and leverage other people's code to get us help. 
 ### Check-in 3
-  - We have made progress with the drop down functionality. The icons are running well and the headers/ sub headers are great. We plan to update the body and styling to make it better.
+  - We have made progress with the drop down functionality. The icons are running well and the headers/ sub headers are great. We plan to update the body and styling to make it better and more visually appealing.
+  - Fixed an issue with yarn where trying to pull changes from group members with different versions of yarn created issues with the yarn.lock file. This can be fixed by deleting the yarn.lock file, running yarn install, and adding .yarn and yarn.lock to the .gitignore.  
   - Our biggest problems are with the github repository. All of us have run into issues with pull requests and merge conflicts. Hannah specifically has been struggling a lot wiht intersection observer. Even when she adds it, she cannot seem to actually get it to do anything. 
   - Next Steps
   1. Hannah - clean up and finish the icon
   2. Taylor - styling the header to look like the header
-  3. Evan - attempt card scaffolding
+  3. Evan - develop card scaffolding
   4. Colton - work on the body allowing lists
   
 ### Check-in 4
