@@ -3,6 +3,16 @@ import { LitElement, html, css } from 'lit';
 import './LearningCardBanner.js';
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
+/*
+TODO: 
+Try really hard not to put my fist through this screen 
+Figure out why icons not being slotted into card banner 
+Once Icons added to the cards edit body to have less whitespace 
+Add Links/Button to "additional resources" this could be another card BUTTTTT
+I would like it to be an icon with an "I" that you can click and be taken to another site relevant to
+the info on the card 
+*/
+
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
 // on github pages, or when people reuse assets outside your elements in production
