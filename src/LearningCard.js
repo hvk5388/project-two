@@ -23,6 +23,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   }
 
   // HTMLElement life-cycle, built in; use this for setting defaults
+  // Use this to get icons
   constructor() {
     super();
     this.myIcon = null;
@@ -83,6 +84,12 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
       :host([type='math']) img {
         background-color: purple;
       }
+      :host([type='science']) img {
+        background-color: yellow;
+      }
+      :host([type='question']) img {
+        background-color: pink;
+      }
       img {
         display: inline-flex;
         height: var(--learning-card-height, 100px);
@@ -95,15 +102,12 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // HTML - specific to Lit
   render() {
     return html`
-      <lrn-card-banner></lrn-card-banner>
+      <lrn-card-banner>
+        
+      </lrn-card-banner>
       <h1>Wow</h1>
       <div>${this.type}</div>
       <div>
-        <div
-          class="slot-wrapper"
-          data-label="Header"
-          data-layout-slotname="header"
-        >
           <slot name="header"></slot>
         </div>
         <img part="icon" src="${beaker}" alt="" />
@@ -115,6 +119,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
           data-layout-slotname="content"
         >
           <slot name="content"></slot>
+          <img part ="icon" src="${beaker}" alt=""/>
           <slot></slot>
         </div>
       </div>

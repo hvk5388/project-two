@@ -42,7 +42,7 @@ export class LearningCardBanner extends SimpleColors {
   constructor() {
     super();
     this.type = '';
-    this.myIcon = null;
+    this.myIcon = 'beaker';
     this.accentColor = 'blue';
     this.dark = false;
 
@@ -121,7 +121,7 @@ export class LearningCardBanner extends SimpleColors {
     return html`
       <div id="banner-element">
         <lrn-card-icon
-        icon = "Jabroni"
+        icon = "beaker"
           my-icon="${this.myIcon}"
           type="${this.myIcon}"
         ></lrn-card-icon>
