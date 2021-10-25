@@ -1,5 +1,6 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
+import './LearningIcon.js';
 
 // const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 // const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
@@ -40,15 +41,26 @@ export class LearningCardBanner extends SimpleColors {
 
   constructor() {
     super();
+    this.type = '';
+    this.myIcon = null;
     this.accentColor = 'blue';
     this.dark = false;
+
+    if (this.getAttribute('icon') != null) {
+      const sketchTag = document.createElement('lrn-card-icon');
+      sketchTag.innerHTML = this.getAttribute('icon');
+      this.appendChild(sketchTag);
+      setTimeout(() => {
+        import('./LearningIcon.js');
+      }, 0);
+    }
   }
 
   static get Properties() {
     return {
       ...super.properties,
       type: { type: String, reflect: true },
-      lrnIcon: { type: String, attribute: 'lrn-Icon' },
+      lrnIcon: { type: String, attribute: 'my-Icon' },
     };
   }
 
@@ -61,6 +73,7 @@ export class LearningCardBanner extends SimpleColors {
           --lrn-card-banner-color1: red;
           --lrn-card-banner-color2: white;
           --lrn-card-banner-color3: green;
+          font-family: 'sans-serif';
         }
 
         img {
@@ -108,19 +121,21 @@ export class LearningCardBanner extends SimpleColors {
     return html`
       <div id="banner-element">
         <lrn-card-icon
-          icon="${this.lrnIcon}"
-          type="${this.lrnIcon}"
+        icon = "Jabroni"
+          my-icon="${this.myIcon}"
+          type="${this.myIcon}"
         ></lrn-card-icon>
         <div id="banner">
           <div id="header">
-            <slot id="header" name="header"></slot>
-            <slot id="sub-header"></slot>
+            <slot id="main-header" name="main-header"></slot>
+            <slot id="sub-header" name="sub-header"></slot>
           </div>
         </div>
       </div>
   </div>
   <script type = "module">
       import './src/app.js';
+      import './src/LearningIcon.js';
   </script>
     `;
   }

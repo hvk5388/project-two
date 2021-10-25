@@ -1,8 +1,6 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 
-import './LearningCardBanner.js';
-
 export class LrnCard extends SimpleColors {
   static get tag() {
     return 'lrn-card';
@@ -76,7 +74,7 @@ export class LrnCard extends SimpleColors {
       css`
         :host {
           display: block;
-          --learning-objective-color1: 'yellow';
+          --learning-objective-color1: ornage-5;
         }
 
         :host([type='math']) img {
@@ -114,23 +112,27 @@ export class LrnCard extends SimpleColors {
     return html`
       <div id="cardFrame">
         <details>
-          <summary @click="${this._rotateIcon}" part="banner">
+          <summary part="banner">
             <div
               class="slot-wrapper"
-              data-label="Header"
+              data-label="header"
               data-layout-slotname="header"
             >
-              <slot name="header"></slot>
+              <!-- <slot name = "header"></slot> -->
+              <lrn-card-banner my-icon="${this.myIcon}" type="${this.type}">
+                <div slot="main header">
+                  <slot name="mainheader">${this.subheader}</slot>
+                </div>
+                <div slot="sub-header">
+                  <slot name="subheader">${this.subheader}</slot>
+                </div>
+              </lrn-card-banner>
             </div>
-            <learning-card-banner>
-              <div slot="header">${this.mainheader}</div>
-              <div slot="sub-header">${this.subheader}</div>
-            </learning-card-banner>
           </summary>
-          <div id="drawer contents">
+          <div id="drawerContents">
             <ul>
-              <li>Plz</li>
-              <li>Work</li>
+              <li>God</li>
+              <li>Damn</li>
             </ul>
           </div>
         </details>
@@ -139,5 +141,46 @@ export class LrnCard extends SimpleColors {
         import './src/app.js';
       </script>
     `;
+  }
+
+  static get haxProperties() {
+    return {
+      canScale: false,
+      canPosition: false,
+      canEditSource: false,
+      contentEditable: false,
+      gizmo: {
+        title: 'Learning Card',
+        description: 'An element that you have to replace / fix / improve',
+        icon: 'credit-card',
+        color: 'blue',
+        groups: ['content', 'Presentation', 'Education'],
+      },
+      settings: {
+        configure: [
+          {
+            property: 'type',
+            title: 'Type',
+            description: 'Identifies the Card',
+            inputMethod: 'select',
+            options: {
+              science: 'Science',
+              math: 'Math',
+            },
+          },
+        ],
+        advanced: [],
+      },
+      demoSchema: [
+        {
+          tag: LrnCard.tag,
+          properties: {
+            type: 'science',
+          },
+          content:
+            "<p slot='header'>This tag renders in the header</p><ul><li>This renders</li><li>Below the tag</li></ul>",
+        },
+      ],
+    };
   }
 }

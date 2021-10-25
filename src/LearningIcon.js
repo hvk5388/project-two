@@ -10,6 +10,49 @@ export class LearningIcon extends SimpleColors {
     return 'learning-icon';
   }
 
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'science') {
+        this.myIcon = 'beaker';
+      }
+      if (propName === 'type' && this[propName] === 'objective') {
+        this.myIcon = 'lightbulb';
+      }
+      if (propName === 'type' && this[propName] === 'fact') {
+        this.myIcon = 'question';
+      }
+    });
+  }
+
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  disconnnectedCallback() {
+    super.disconnnectedCallback();
+  }
+
+  constructor() {
+    super();
+    this.accentColor = 'red';
+    this.dark = false;
+    this.myIcon = null;
+  }
+
+  static get properties() {
+    return {
+      ...super.properties,
+      type: { type: String, reflect: true },
+      myIcon: { type: String, attribute: 'my-icon' },
+    };
+  }
+
   static get styles() {
     return [
       ...super.styles,
@@ -29,67 +72,56 @@ export class LearningIcon extends SimpleColors {
           width: var(--lrn-card-width, 150px);
           background-color: transparent;
         }
-        #banner {
+        #banner1 {
           display: flex;
           flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          color: white;
+        }
+        #headers {
+          padding: 5px;
+          margin: 5px;
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: left;
+          align-items: left;
+        }
+        #main-header {
+          font-size: 200%;
+          text-transform: uppercase;
+          font-weight: 300;
+        }
+        #sub-header {
+          font-size: 250%;
         }
       `,
     ];
   }
 
-  static get properties() {
-    return {
-      ...super.properties,
-      type: { type: String, reflect: true },
-      lrnIcon: { type: String, attribute: 'lrn-icon' },
-      iconScale: { type: String, attribute: 'icon-scale', reflect: true },
-      bgColor: { type: String, attribute: 'bg-color', reflect: true },
-    };
-  }
-
-  constructor() {
-    super();
-    this.type = 'math';
-    this.iconScale = 'inherit';
-    this.icon_value.set('math', lightbulb);
-    this.icon_value.set('science', beaker);
-    this.icon_value.set('question', question);
-    this.style.backgroundColor = 'yellow';
-    this.dark = false;
-    this.accentColor = 'green';
-  }
-
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'beaker';
-      }
-      this.style.setProperty('--icon-scale', this.iconScale);
-      this.style.backgroundColor = 'purple';
-    });
-  }
-
-  firstUpdated(changedProperties) {
-    if (super.firstUpdated) {
-      super.firstUpdated(changedProperties);
-      this.style.setProperty('--icon-scale', this.iconScale);
-      this.style.backgroundColor = 'blue';
-    }
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-  }
-
   render() {
-    return html`
-      <div id="banner">
-        <img part="icon" src="${question}" alt="" />
-      </div>
-    `;
+    if (this.myIcon === 'lightbulb') {
+      return html`
+        <div id="bannerElement">
+          <img part="icon" src="${lightbulb}" alt="" />
+        </div>
+      `;
+    }
+    if (this.myIcon === 'beaker') {
+      return html`
+        <div id="bannerElement">
+          <img part="icon" src="${beaker}" alt="" />
+        </div>
+      `;
+    }
+    if (this.myIcon === 'question') {
+      return html`
+        <div id="bannerElement">
+          <img parg="icon" src="${question}" alt="" />
+        </div>
+      `;
+    }
+    return null;
   }
 }
