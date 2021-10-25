@@ -40,6 +40,11 @@ export class LearningIcon extends SimpleColors {
 
   constructor() {
     super();
+    this.type = 'math';
+    this.icon_value = new Map();
+    this.icon_value.set('math', lightbulb);
+    this.icon_value.set('science', beaker);
+    this.icon_value.set('question', question);
     this.accentColor = 'red';
     this.dark = false;
     this.myIcon = null;
@@ -50,6 +55,7 @@ export class LearningIcon extends SimpleColors {
       ...super.properties,
       type: { type: String, reflect: true },
       myIcon: { type: String, attribute: 'my-icon' },
+      icon_value: { type: Map },
     };
   }
 
