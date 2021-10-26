@@ -1,6 +1,9 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
 import './LearningCardBanner.js';
+import './LearningIcon.js';
+import './LearningScaffold.js';
+import './LrnCard.js';
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 /*

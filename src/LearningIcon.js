@@ -1,5 +1,9 @@
 import { css, html } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';
+/* 
+import {fixture, expect } from '@open-wc/testing';
+import './src/app.js';
+*/
 
 const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
