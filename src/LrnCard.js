@@ -14,6 +14,10 @@ export class LrnCard extends SimpleColors {
     this.dark = false;
     this.header = 'Header';
     this.subheader = 'subheader';
+    this.listElemOne = 'test one';
+    this.listElemTwo = 'test two';
+    this.listElemThree = 'test three';
+    this.backColor = 'purple';
 
     if (this.getAttribute('icon') != null) {
       const lrnTag = document.createElement('beaker');
@@ -31,6 +35,10 @@ export class LrnCard extends SimpleColors {
       myIcon: { type: String, attribute: 'my-icon' },
       header: { type: String },
       subheader: { type: String },
+      listElemOne: { type: String },
+      listElemTwo: { type: String },
+      listElemThree: { type: String },
+      backColor: { type: String },
     };
   }
 
@@ -40,16 +48,37 @@ export class LrnCard extends SimpleColors {
         this.myIcon = 'beaker';
         this.mainheader = 'Unit 1';
         this.subheader = 'Chem Connection';
+        this.listElemOne =
+          'Describe the subatomic particles that make up an atom.';
+        this.listElemTwo =
+          'Describe the subatomic particles that make up an atom.';
+        this.listElemThree =
+          'Describe the subatomic particles that make up an atom.';
+        this.backColor = '#418449';
       }
       if (propName === 'type' && this[propName] === 'objective') {
         this.myIcon = 'lightbulb';
         this.mainheader = 'Unit 1';
         this.subheader = 'Learning Objectives';
+        this.listElemOne =
+          'Describe the subatomic particles that make up an atom.';
+        this.listElemTwo =
+          'Describe the subatomic particles that make up an atom.';
+        this.listElemThree =
+          'Describe the subatomic particles that make up an atom.';
+        this.backColor = '#d07f3b';
       }
       if (propName === 'type' && this[propName] === 'fact') {
         this.myIcon = 'question';
         this.mainheader = 'Unit 1';
-        this.subheader = 'Did you know?';
+        this.subheader = 'Did You Know?';
+        this.listElemOne =
+          'Describe the subatomic particles that make up an atom.';
+        this.listElemTwo =
+          'Describe the subatomic particles that make up an atom.';
+        this.listElemThree =
+          'Describe the subatomic particles that make up an atom.';
+        this.backColor = '#376b9c';
       }
     });
   }
@@ -101,8 +130,34 @@ export class LrnCard extends SimpleColors {
           align-items: center;
         }
         #cardFrame {
-          box-shadow: 4px 4px 7px 0px rgba(128, 0, 0, 1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
           margin: 30px 0px;
+        }
+        learning-card-banner {
+          padding: 10px;
+          width: 100%;
+        }
+        learning-card-banner div {
+          font-family: Helvetica;
+          text-transform: uppercase;
+          color: white;
+          padding-left: 54px;
+        }
+        learning-card-banner div:nth-child(1) {
+          font-size: 24px;
+          font-weight: 100;
+        }
+        learning-card-banner div:nth-child(2) {
+          font-size: 28px;
+          font-weight: 400;
+        }
+        ul {
+          padding: 0 80px 20px 80px;
+        }
+        li {
+          font-size: 14px;
+          color: #6d6c6b;
         }
       `,
     ];
@@ -128,11 +183,16 @@ export class LrnCard extends SimpleColors {
                 </div>
               </lrn-card-banner>
             </div>
+            <learning-card-banner style="background-color:${this.backColor};">
+              <div slot="header">${this.mainheader}</div>
+              <div slot="sub-header">${this.subheader}</div>
+            </learning-card-banner>
           </summary>
           <div id="drawerContents">
             <ul>
-              <li>God</li>
-              <li>Damn</li>
+              <li>${this.listElemOne}</li>
+              <li>${this.listElemTwo}</li>
+              <li>${this.listElemThree}</li>
             </ul>
           </div>
         </details>

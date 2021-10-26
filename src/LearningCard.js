@@ -55,8 +55,17 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // this allows you to react to variables changing and use javascript to perform logic
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'objective') {
+        this.icon = 'lightbulb';
+        this.subheading = 'Learning Objectives';
+      }
       if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'beaker';
+        this.icon = 'beaker';
+        this.subheading = 'Chem Connection';
+      }
+      if (propName === 'type' && this[propName] === 'question') {
+        this.icon = 'question';
+        this.subheading = 'Did You Know?';
       }
     });
   }
@@ -112,27 +121,82 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // HTML - specific to Lit
   render() {
     return html`
-      <lrn-card-banner>
-        
-      </lrn-card-banner>
-      <h1>Wow</h1>
-      <div>${this.type}</div>
-      <div>
-          <slot name="header"></slot>
-        </div>
-        <img part="icon" src="${beaker}" alt="" />
-        <img part="icon" src="${lightbulb}" alt="" />
-        <img part="icon" src="${question}" alt="" />
-        <div
-          class="slot-wrapper"
-          data-label="Content"
-          data-layout-slotname="content"
-        >
-          <slot name="content"></slot>
-          <img part ="icon" src="${beaker}" alt=""/>
-          <slot></slot>
-        </div>
-      </div>
+      ${this.elementVisible
+        ? html`
+            <lrn-card-banner></lrn-card-banner>
+            <h1>Gabagool</h1>
+            <div>${this.type}</div>
+            <div>
+              <learning-header> Test the Header </learning-header>
+
+              <div>
+                <div
+                  class="slot-wrapper"
+                  data-label="Header"
+                  data-layout-slotname="header"
+                >
+                  <slot name="header">
+                    <img part="icon" src="${beaker}" alt="" />
+                    <learning-header>This is the Header</learning-header>
+                    <learning-sub-header
+                      >This is the sub header</learning-sub-header
+                    >
+                  </slot>
+                </div>
+                <div
+                  class="slot-wrapper"
+                  data-label="Content"
+                  data-layout-slotname="content"
+                >
+                  <slot name="content"></slot>
+                  <slot></slot>
+                  <h1>Project 2: Card</h1>
+                  <div>
+                    <div
+                      class="slot-wrapper"
+                      data-label="Header"
+                      data-layout-slotname="header"
+                    >
+                      <slot name="header"></slot>
+                    </div>
+                    <img part="micon" src="${beaker}" alt="" />
+                    <img part="icon" src="${lightbulb}" alt="" />
+                    <img part="icon" src="${question}" alt="" />
+                    <div
+                      class="slot-wrapper"
+                      data-label="Content"
+                      data-layout-slotname="content"
+                    >
+                      <slot name="content"></slot>
+                      <slot></slot>
+                      <h1>Project 2: Figure out the fucking lightbulb</h1>
+                      <div>
+                        <div
+                          class="slot-wrapper"
+                          data-label="Header"
+                          data-layout-slotname="header"
+                        >
+                          <slot name="header"></slot>
+                        </div>
+                        <img part="icon" src="${lightbulb}" alt="" />
+                        <img part="icon" src="${lightbulb}" alt="" />
+                        <img part="icon" src="${lightbulb}" alt="" />
+                        <div
+                          class="slot-wrapper"
+                          data-label="Content"
+                          data-layout-slotname="content"
+                        >
+                          <slot name="content"></slot>
+                          <slot></slot>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `
+        : ``};
     `;
   }
 

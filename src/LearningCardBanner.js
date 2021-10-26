@@ -70,7 +70,7 @@ export class LearningCardBanner extends SimpleColors {
       css`
         :host {
           display: inline-block;
-          --lrn-card-banner-color1: red;
+          --lrn-card-banner-color1: purple;
           --lrn-card-banner-color2: white;
           --lrn-card-banner-color3: green;
           font-family: 'sans-serif';
