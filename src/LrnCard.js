@@ -39,10 +39,10 @@ export class LrnCard extends SimpleColors {
         this.myIcon = 'my-icon';
         this.mainheader = 'Unit 1';
         this.subheader = 'Chem Connection';
-        this.listElemOne =
-          'Describe the subatomic particles that make up an atom.';
-        this.listElemTwo = 'Explain how these particles work together.';
-        this.listElemThree = 'Why are these particles so important?';
+        this.listElemOne = 'What makes an element an Isotope?';
+        this.listElemTwo = 'Quarks and Gluons make up what?';
+        this.listElemThree =
+          'What was the first element created after the big bang?';
         this.backColor = '#418449';
       }
       if (propName === 'type' && this[propName] === 'objective') {
@@ -51,10 +51,8 @@ export class LrnCard extends SimpleColors {
         this.subheader = 'Learning Objectives';
         this.listElemOne =
           'Describe the subatomic particles that make up an atom.';
-        this.listElemTwo =
-          'Describe the subatomic particles that make up an atom.';
-        this.listElemThree =
-          'Describe the subatomic particles that make up an atom.';
+        this.listElemTwo = 'Explain how these particles work together.';
+        this.listElemThree = 'Why are these particles so important?';
         this.backColor = '#d07f3b';
       }
       if (propName === 'type' && this[propName] === 'fact') {
@@ -62,11 +60,10 @@ export class LrnCard extends SimpleColors {
         this.mainheader = 'Unit 1';
         this.subheader = 'Did You Know?';
         this.listElemOne =
-          'Describe the subatomic particles that make up an atom.';
-        this.listElemTwo =
-          'Describe the subatomic particles that make up an atom.';
+          'Walter White used High School Chemistry Equipment to cook meth?';
+        this.listElemTwo = 'Walts meth was so good like 98% purity.';
         this.listElemThree =
-          'Describe the subatomic particles that make up an atom.';
+          'Anyways you should watch breaking bad its a great show.';
         this.backColor = '#376b9c';
       }
     });
@@ -92,7 +89,7 @@ export class LrnCard extends SimpleColors {
       css`
         :host {
           display: block;
-          --learning-objective-color1: ornage-5;
+          background-color: 'white';
         }
 
         :host([type='math']) img {
@@ -127,7 +124,7 @@ Any chance I can use this to dynamically import the icons?
           margin: 30px 0px;
         }
         learning-card-banner {
-          padding: 10px;
+          padding: 10x;
           width: 100%;
         }
         learning-card-banner div {
@@ -139,6 +136,7 @@ Any chance I can use this to dynamically import the icons?
         learning-card-banner div:nth-child(1) {
           font-size: 24px;
           font-weight: 100;
+          font-family: sans-serif;
         }
         learning-card-banner div:nth-child(2) {
           font-size: 28px;

@@ -23,9 +23,9 @@ HOW THE FUCK MY CODE SO DIFFERNT
 // because this won't change we can leverage as an internal variable without being
 // declared in properties. This let's us ship the icons while referencing them correctly
 
-const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
-const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
-const question = new URL('../assets/question.svg', import.meta.url).href;
+// const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
+// const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
+// const question = new URL('../assets/question.svg', import.meta.url).href;
 
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
@@ -125,34 +125,11 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // HTML - specific to Lit
   // Is <learning-header> now invalid since I deleted that file?
   // I feel like we don't need a learning-header and learning-sub-header js files to do this...
+  // Removed everything from render here and it still renders the card???
+  // If I removed everything then how is the card being imported
+
   render() {
-    return html`
-      ${this.elementVisible
-        ? html`
-            <lrn-card-banner></lrn-card-banner>
-            <h1>Gabagool</h1>
-            <div>${this.type}</div>
-            <div>
-              <learning-header> Test the Header </learning-header>
-              <learning-header>This is the Header</learning-header>
-              <learning-sub-header>This is the sub header</learning-sub-header>
-              <div>
-                <div
-                  class="slot-wrapper"
-                  data-label="Header"
-                  data-layout-slotname="header"
-                >
-                  <slot name="header">
-                    <img part="icon" src="${beaker}" alt="" />
-                    <img part="icon" src="${question}" alt="" />
-                    <img part="icon" src="${lightbulb}" alt="" />
-                  </slot>
-                </div>
-              </div>
-            </div>
-          `
-        : ``};
-    `;
+    return html``;
   }
 
   // HAX specific callback

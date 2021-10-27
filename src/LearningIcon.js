@@ -16,15 +16,9 @@ export class LearningIcon extends SimpleColors {
 
   constructor() {
     super();
-    this.icon = beaker;
-    this.type = 'science';
-    // this.iconScale = 'inherit';
-    // this.icon_value.set('math', lightbulb);
-    // this.icon_value.set('science', beaker);
-    // this.icon_value.set('question', question);
-    // this.style.backgroundColor = 'yellow';
-    // this.dark = false;
-    // this.accentColor = 'green';
+    this.icon = null;
+    this.dark = false;
+    this.accentColor = 'blue';
   }
 
   static get properties() {
@@ -40,15 +34,14 @@ export class LearningIcon extends SimpleColors {
   updated(changedProperties) {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.icon = beaker;
-        this.accentColor = 'green';
+      if (propName === 'type' && this[propName] === 'beaker') {
+        this.icon = 'beaker';
       }
-      if (propName === 'type' && this[propName] === 'objective') {
-        this.icon = lightbulb;
+      if (propName === 'type' && this[propName] === 'lightbulb') {
+        this.icon = 'lightbulb';
       }
       if (propName === 'type' && this[propName] === 'question') {
-        this.icon = question;
+        this.icon = 'question';
       }
     });
   }
@@ -98,56 +91,27 @@ export class LearningIcon extends SimpleColors {
   }
 
   render() {
-    return html`
-      <div id="banner">
-        <img src="${this.icon}" alt="" style="height: 100px; width: 100px" />
-      </div>
-    `;
-  }
-
-  // HAX specific callback
-  // This teaches HAX how to edit and work with your web component
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return {
-      canScale: false,
-      canPosition: false,
-      canEditSource: true,
-      contentEditable: true,
-      gizmo: {
-        title: 'Learning Card',
-        description: 'An element that you have to replace / fix / improve',
-        icon: 'credit-card',
-        color: 'blue',
-        groups: ['Content', 'Presentation', 'Education'],
-      },
-      settings: {
-        configure: [
-          {
-            property: 'type',
-            title: 'Type',
-            description: 'Identifies the card',
-            inputMethod: 'select',
-            options: {
-              science: 'Science',
-              math: 'Math',
-            },
-          },
-        ],
-        advanced: [],
-      },
-      demoSchema: [
-        {
-          tag: LearningIcon.tag,
-          properties: {
-            type: 'science',
-          },
-          content:
-            "<p slot='header'>This tag renders in the header</p><ul><li>This renders</li><li>Below the tag</li></ul>",
-        },
-      ],
-    };
+    if (this.icon === 'lightbulb') {
+      return html`
+        <div id="bannerElement">
+          <img part="icon" src="${lightbulb}" alt="" />
+        </div>
+      `;
+    }
+    if (this.icon === 'beaker') {
+      return html`
+        <div id="bannerElement">
+          <img part="icon" src="${beaker}" alt="" />
+        </div>
+      `;
+    }
+    if (this.icon === 'question') {
+      return html`
+        <div id="bannerElement">
+          <img part="icon" src="${question}" alt="" />
+        </div>
+      `;
+    }
+    return null;
   }
 }
