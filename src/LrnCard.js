@@ -18,15 +18,6 @@ export class LrnCard extends SimpleColors {
     this.listElemTwo = 'test two';
     this.listElemThree = 'test three';
     this.backColor = 'purple';
-
-    if (this.getAttribute('icon') != null) {
-      const lrnTag = document.createElement('beaker');
-      lrnTag.innerHTML = this.getAttribute('icon');
-      this.appendChild(lrnTag);
-      setTimeout(() => {
-        import('./LearningIcon.js');
-      }, 0);
-    }
   }
 
   static get properties() {
@@ -45,15 +36,13 @@ export class LrnCard extends SimpleColors {
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'beaker';
+        this.myIcon = 'my-icon';
         this.mainheader = 'Unit 1';
         this.subheader = 'Chem Connection';
         this.listElemOne =
           'Describe the subatomic particles that make up an atom.';
-        this.listElemTwo =
-          'Describe the subatomic particles that make up an atom.';
-        this.listElemThree =
-          'Describe the subatomic particles that make up an atom.';
+        this.listElemTwo = 'Explain how these particles work together.';
+        this.listElemThree = 'Why are these particles so important?';
         this.backColor = '#418449';
       }
       if (propName === 'type' && this[propName] === 'objective') {
@@ -116,10 +105,13 @@ export class LrnCard extends SimpleColors {
           width: var(--learning-card-width, 100px);
           background-color: 'green';
         }
-
+        /*
+When deleting summary the cards get all out of whack
+Any chance I can use this to dynamically import the icons? 
+*/
         summary {
           list-style-position: inside;
-          list-style-image: url('../assets/arrow-right.svg');
+          list-style-image: url('../assets/beaker.svg');
           display: flex;
         }
 
@@ -173,7 +165,7 @@ export class LrnCard extends SimpleColors {
               data-label="header"
               data-layout-slotname="header"
             >
-              <!-- <slot name = "header"></slot> -->
+              <!-- This section needs work to import icons! <slot name = "header"></slot> -->
               <lrn-card-banner my-icon="${this.myIcon}" type="${this.type}">
                 <div slot="main header">
                   <slot name="mainheader">${this.subheader}</slot>

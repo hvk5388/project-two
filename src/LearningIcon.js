@@ -151,4 +151,3 @@ export class LearningIcon extends SimpleColors {
     };
   }
 }
-window.customElements.define(LearningIcon.tag, LearningIcon);
