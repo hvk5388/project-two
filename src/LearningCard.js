@@ -123,6 +123,8 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   }
 
   // HTML - specific to Lit
+  // Is <learning-header> now invalid since I deleted that file?
+  // I feel like we don't need a learning-header and learning-sub-header js files to do this...
   render() {
     return html`
       ${this.elementVisible
