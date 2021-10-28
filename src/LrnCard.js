@@ -4,6 +4,7 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 import './LearningCardBanner.js';
 import './LearningIcon.js';
 import './LearningScaffold.js';
+// import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 // import { LearningScaffold } from './LearningScaffold';
 // import { LearningIcon } from './LearningIcon';
@@ -75,8 +76,7 @@ export class LrnCard extends SimpleColors {
       listElemTwo: { type: String },
       listElemThree: { type: String },
       // attribute helps us bind the JS spec for variables names to the HTML spec
-      /* myIcon: { type: String, attribute: 'my-icon' },
-       */
+      /* myIcon: { type: String, attribute: 'my-icon' }, */
       /* backColor: { type: String }, */
     };
   }
