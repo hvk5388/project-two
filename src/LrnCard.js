@@ -104,6 +104,7 @@ export class LrnCard extends SimpleColors {
         }
         /*
 When deleting summary the cards get all out of whack
+Possible issue with icons here 
 Any chance I can use this to dynamically import the icons? 
 */
         summary {

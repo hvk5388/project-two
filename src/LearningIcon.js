@@ -68,12 +68,10 @@ export class LearningIcon extends SimpleColors {
       css`
         :host {
           display: block;
-          --lrn-card-banner-color1: red;
-          --lrn-card-banner-color2: white;
-          --lrn-card-banner-color3: green;
-          // height: var(--icon-scale, inherit);
-          // width: var(--icon-scale, inherit);
-          // position: absolute;
+
+          height: var(--icon-scale, inherit);
+          width: var(--icon-scale, inherit);
+          position: absolute;
         }
         image {
           display: inline-flex;
