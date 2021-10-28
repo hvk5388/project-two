@@ -42,7 +42,7 @@ Making different card types and leverage stuff from one card to the next.
   1. We learned the importance of breaking up the elements into files.
 - Next steps
   1. Hannah - implement intersection observer
-  2. Taylor - leverage the icon's basic API
+  2. Taylor - leverage the icon's basic API and banner issues
   3. Evan - implent the two named slots
   4. Colton - allow for dynamic imports
 
@@ -64,12 +64,12 @@ Making different card types and leverage stuff from one card to the next.
   - Our biggest problems are with the github repository. All of us have run into issues with pull requests and merge conflicts. Hannah specifically has been struggling a lot wiht intersection observer. Even when she adds it, she cannot seem to actually get it to do anything. 
   - Next Steps
   1. Hannah - clean up and finish the icon
-  2. Taylor - styling the header to look like the header
+  2. Taylor - styling the header to look like the header and figuring out subheader issues with Evan
   3. Evan - develop card scaffolding
   4. Colton - work on the body allowing lists
   
 ### Check-in 4
--
+- We made progress on simple colors fixing the implementation. We also figured out some of the issues what we could fix and new approaches of doing so through the issue que. We made sure that all redundant code that we saw was removed.
 -
 <br>
 <h2>Meeting Date & Class: 10/5/21 </h2>
@@ -119,4 +119,7 @@ What should we call each of them?</b>
     Notes from other groups: Other groups are working on each individual element first like the header, banner, icon, and scaffolding. 
     Next Steps: Our next steps are to get the icons and banners working with functional APIs. 
 
-   
+<br>
+<h2>Meeting Date & Class: 10/28/21 </h2>
+<br>
+<b>We worked together to make a plan for final steps.</b>
