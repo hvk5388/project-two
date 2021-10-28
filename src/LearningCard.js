@@ -3,7 +3,7 @@ import './LearningCardBanner.js';
 import './LearningIcon.js';
 import './LearningScaffold.js';
 import './LrnCard.js';
-import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
+// import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 /*
 TODO: 
@@ -29,7 +29,7 @@ HOW THE FUCK MY CODE SO DIFFERNT
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
 
-export class LearningCard extends IntersectionObserverMixin(LitElement) {
+export class LearningCard extends LitElement {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
     return 'learning-card';
