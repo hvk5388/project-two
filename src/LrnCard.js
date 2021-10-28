@@ -4,7 +4,6 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 import './LearningCardBanner.js';
 import './LearningIcon.js';
 import './LearningScaffold.js';
-import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 // import { LearningScaffold } from './LearningScaffold';
 // import { LearningIcon } from './LearningIcon';
@@ -19,7 +18,6 @@ Update: I think my issue with the icons is with div or slot names being wrong or
 Probably just tons of small dumb mistakes in here that need cleaning up 
 Want to import three different versions of our button with 3 different styles/links for each card
 */
-
 
 /*
 TODO: 
@@ -44,7 +42,6 @@ HOW THE FUCK MY CODE SO DIFFERNT
 
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
-
 
 export class LrnCard extends SimpleColors {
   static get tag() {
@@ -78,7 +75,8 @@ export class LrnCard extends SimpleColors {
       listElemTwo: { type: String },
       listElemThree: { type: String },
       // attribute helps us bind the JS spec for variables names to the HTML spec
-      /*myIcon: { type: String, attribute: 'my-icon' },*/
+      /* myIcon: { type: String, attribute: 'my-icon' },
+       */
       /* backColor: { type: String }, */
     };
   }
@@ -118,7 +116,7 @@ export class LrnCard extends SimpleColors {
     });
   }
 
-    // Lit life-cycle; this fires the 1st time the element is rendered on the screen
+  // Lit life-cycle; this fires the 1st time the element is rendered on the screen
   // this is a sign it is safe to make calls to this.shadowRoot
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
@@ -152,7 +150,7 @@ export class LrnCard extends SimpleColors {
     });
   }
   */
-// CSS - specific to Lit
+  // CSS - specific to Lit
   // CSS MEDIA QUERIES!!!
   // Pixel based, development?!
   // Render all tags and stlye img in styles???
@@ -166,19 +164,15 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-
         :host([type='objective']) img {
           background-color: var(--simple-colors-default-theme-accent-1);
         }
-
         :host([type='science']) {
           background-color: var(--simple-colors-default-theme-accent-5);
         }
-
         :host([type='fact']) {
           background-color: var(--simple-colors-default-theme-accent-3);
         }
-
         img {
           display: inline-flex;
           height: var(--lrn-card-height, 100px);
