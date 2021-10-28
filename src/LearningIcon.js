@@ -14,6 +14,22 @@ export class LearningIcon extends SimpleColors {
     return 'learning-icon';
   }
 
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'science') {
+        this.myIcon = 'beaker';
+      }
+      if (propName === 'type' && this[propName] === 'question') {
+        this.myIcon = 'question';
+      }
+      if (propName === 'type' && this[propName] === 'lightbulb') {
+        this.myIcon = 'lightbulb';
+      }
+      this.style.setProperty('--icon-height', this.iconHeight);
+      this.style.setProperty('--icon-width', this.iconWidth);
+    });
+  }
+
   constructor() {
     super();
     this.type = 'math';
@@ -37,13 +53,6 @@ export class LearningIcon extends SimpleColors {
       iconHeight: { type: String, attribute: 'icon-height', reflect: true },
       iconWidth: { type: String, attribute: 'icon-width', reflect: true },
     };
-  }
-
-  updated(changedProperties) {
-    changedProperties.forEach(() => {
-      this.style.setProperty('--icon-height', this.iconHeight);
-      this.style.setProperty('--icon-width', this.iconWidth);
-    });
   }
 
   firstUpdated(changedProperties) {

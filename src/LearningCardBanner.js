@@ -120,11 +120,11 @@ export class LearningCardBanner extends SimpleColors {
   render() {
     return html`
       <div id="banner-element">
-        <lrn-card-icon
+        <learning-icon
         icon = "beaker"
           my-icon="${this.myIcon}"
           type="${this.myIcon}"
-        ></lrn-card-icon>
+        ></learning-icon>
         <div id="banner">
           <div id="header">
             <slot id="main-header" name="main-header"></slot>

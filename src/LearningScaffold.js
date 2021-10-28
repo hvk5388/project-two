@@ -52,6 +52,8 @@ export class LearningScaffold extends LitElement {
       }
     `;
   }
+  // Unused slot for body content here?
+  // Can I uset this to pass a button in?
 
   render() {
     return html`

@@ -10,6 +10,9 @@ Clearly most of the rendering of the card is going on here
 Still having trouble dynamically importing icons into the card 
 I got it to kind of import icons earlier but not where I wanted them 
 Main issue is with dynamic rendering and why I can't get the icons to render in the card
+Update: I think my issue with the icons is with div or slot names being wrong or misspelled
+Probably just tons of small dumb mistakes in here that need cleaning up 
+Want to import three different versions of our button with 3 different styles/links for each card
 */
 
 export class LrnCard extends SimpleColors {
@@ -183,6 +186,9 @@ Any chance I can use this to dynamically import the icons?
                 <div slot="main header">
                   <slot name="mainheader">${this.subheader}</slot>
                 </div>
+                <!-- the sub-header div is rendering the learning objectives on the side of the card -->
+                <!-- How can I replace the subheader with icons? -->
+                <!-- update: The icons show up on the card but aren't rendering -->
                 <div slot="sub-header">
                   <slot name="subheader">${this.subheader}</slot>
                 </div>
