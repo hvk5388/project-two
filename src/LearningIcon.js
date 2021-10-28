@@ -1,5 +1,5 @@
 import { css, html } from 'lit';
-import { SimpleColors } from '@lrnwebcomponents/simple-colors';
+import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 /* 
 import {fixture, expect } from '@open-wc/testing';
 import './src/app.js';
@@ -15,31 +15,30 @@ export class LearningIcon extends SimpleColors {
   }
 
   updated(changedProperties) {
+    super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'beaker';
+        this.myIcon = beaker;
       }
-      if (propName === 'type' && this[propName] === 'question') {
-        this.myIcon = 'question';
+      if (propName === 'type' && this[propName] === 'objective') {
+        this.myIcon = question;
       }
-      if (propName === 'type' && this[propName] === 'lightbulb') {
-        this.myIcon = 'lightbulb';
+      if (propName === 'type' && this[propName] === 'fact') {
+        this.myIcon = lightbulb;
       }
-      this.style.setProperty('--icon-height', this.iconHeight);
+      if (propName === 'iconHeight') {
+        this.style.setProperty('--icon-height', this.iconHeight);
+      }
       this.style.setProperty('--icon-width', this.iconWidth);
     });
   }
 
   constructor() {
     super();
-    this.type = 'math';
+    this.type = null;
     this.iconHeight = 'inherit';
     this.iconWidth = 'inherit';
     this.myIcon = null;
-    this.iconValue = new Map();
-    this.iconValue.set('math', lightbulb);
-    this.iconValue.set('science', beaker);
-    this.iconValue.set('question', question);
     this.dark = false;
     this.accentColor = 'blue';
   }
@@ -49,7 +48,6 @@ export class LearningIcon extends SimpleColors {
       ...super.properties,
       type: { type: String, reflect: true },
       myIcon: { type: String },
-      iconValue: { type: Map },
       iconHeight: { type: String, attribute: 'icon-height', reflect: true },
       iconWidth: { type: String, attribute: 'icon-width', reflect: true },
     };
@@ -58,18 +56,9 @@ export class LearningIcon extends SimpleColors {
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
-      this.style.setProperty('--icon-height', this.iconHeight);
-      this.style.setProperty('--icon-width', this.iconWidth);
     }
-  }
-
-  // What does this do? Really?
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
+    this.style.setProperty('--icon-height', this.iconHeight);
+    this.style.setProperty('--icon-width', this.iconWidth);
   }
 
   static get styles() {
@@ -81,7 +70,7 @@ export class LearningIcon extends SimpleColors {
           height: var(--icon-height, inherit);
           width: var(--icon-width, inherit);
         }
-        image {
+        img {
           display: inline-flex;
           height: var(--lrn-card-height, 150px);
           width: var(--lrn-card-width, 150px);
@@ -100,13 +89,15 @@ export class LearningIcon extends SimpleColors {
     ];
   }
 
+  // Issue with rendering Icons here
+
   render() {
     return html`
       <div id="learning-icon">
         <img
           part="icon"
-          id="icon"
-          src="${this.iconValue.get(this.type)}"
+          id="learning-icon"
+          .src="${this.myIcon}"
           alt="learning card ${this.type} icon"
         />
       </div>

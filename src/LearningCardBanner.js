@@ -11,56 +11,17 @@ export class LearningCardBanner extends SimpleColors {
     return 'lrn-card-banner';
   }
 
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.lrnIcon = 'beaker';
-      }
-      if (propName === 'type' && this[propName] === 'objective') {
-        this.lrnIcon = 'lightbulb';
-      }
-      if (propName === 'type' && this[propName] === 'fact') {
-        this.lrnIcon = 'question';
-      }
-    });
-  }
-
-  firstUpdated(changedProperties) {
-    if (super.firstUpdated) {
-      super.firstUpdated(changedProperties);
-    }
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-  }
-
   constructor() {
     super();
-    this.type = '';
-    this.myIcon = 'beaker';
+    this.type = null;
     this.accentColor = 'blue';
     this.dark = false;
-
-    if (this.getAttribute('icon') != null) {
-      const sketchTag = document.createElement('lrn-card-icon');
-      sketchTag.innerHTML = this.getAttribute('icon');
-      this.appendChild(sketchTag);
-      setTimeout(() => {
-        import('./LearningIcon.js');
-      }, 0);
-    }
   }
 
-  static get Properties() {
+  static get properties() {
     return {
       ...super.properties,
       type: { type: String, reflect: true },
-      lrnIcon: { type: String, attribute: 'my-Icon' },
     };
   }
 
@@ -120,11 +81,7 @@ export class LearningCardBanner extends SimpleColors {
   render() {
     return html`
       <div id="banner-element">
-        <learning-icon
-        icon = "beaker"
-          my-icon="${this.myIcon}"
-          type="${this.myIcon}"
-        ></learning-icon>
+        <learning-icon type="${this.type}"></learning-icon>
         <div id="banner">
           <div id="header">
             <slot id="main-header" name="main-header"></slot>
@@ -132,11 +89,6 @@ export class LearningCardBanner extends SimpleColors {
           </div>
         </div>
       </div>
-  </div>
-  <script type = "module">
-      import './src/app.js';
-      import './src/LearningIcon.js';
-  </script>
     `;
   }
 }

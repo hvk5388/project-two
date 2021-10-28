@@ -22,11 +22,10 @@ export class LrnCard extends SimpleColors {
 
   constructor() {
     super();
-    this.myIcon = null;
-    this.type = 'math';
+    this.type = 'objective';
     this.accentColor = 'blue';
     this.dark = false;
-    this.header = 'Header';
+    this.header = 'header';
     this.subheader = 'subheader';
     this.listElemOne = 'test one';
     this.listElemTwo = 'test two';
@@ -38,8 +37,7 @@ export class LrnCard extends SimpleColors {
     return {
       ...super.properties,
       type: { type: String, reflect: true },
-      myIcon: { type: String, attribute: 'my-icon' },
-      header: { type: String, attribute: 'Header', reflect: true },
+      header: { type: String, reflect: true },
       subheader: { type: String },
       listElemOne: { type: String },
       listElemTwo: { type: String },
@@ -49,9 +47,9 @@ export class LrnCard extends SimpleColors {
   }
 
   updated(changedProperties) {
+    super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'my-icon';
         this.mainheader = 'Unit 1';
         this.subheader = 'Chem Connection';
         this.listElemOne = 'What makes an element an Isotope?';
@@ -61,7 +59,6 @@ export class LrnCard extends SimpleColors {
         this.backColor = '#418449';
       }
       if (propName === 'type' && this[propName] === 'objective') {
-        this.myIcon = 'lightbulb';
         this.mainheader = 'Unit 1';
         this.subheader = 'Learning Objectives';
         this.listElemOne =
@@ -71,7 +68,6 @@ export class LrnCard extends SimpleColors {
         this.backColor = '#d07f3b';
       }
       if (propName === 'type' && this[propName] === 'fact') {
-        this.myIcon = 'question';
         this.mainheader = 'Unit 1';
         this.subheader = 'Did You Know?';
         this.listElemOne =
@@ -181,8 +177,7 @@ Any chance I can use this to dynamically import the icons?
               data-label="header"
               data-layout-slotname="header"
             >
-              <!-- This section needs work to import icons! <slot name = "header"></slot> -->
-              <lrn-card-banner my-icon="${this.myIcon}" type="${this.type}">
+              <lrn-card-banner type="${this.type}">
                 <div slot="main header">
                   <slot name="mainheader">${this.subheader}</slot>
                 </div>
@@ -196,7 +191,6 @@ Any chance I can use this to dynamically import the icons?
             </div>
             <learning-card-banner style="background-color:${this.backColor};">
               <div slot="header">${this.mainheader}</div>
-              <div slot="sub-header">${this.subheader}</div>
             </learning-card-banner>
           </summary>
           <div id="drawerContents">
@@ -208,9 +202,6 @@ Any chance I can use this to dynamically import the icons?
           </div>
         </details>
       </div>
-      <script type="module">
-        import './src/app.js';
-      </script>
     `;
   }
 
