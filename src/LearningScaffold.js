@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit';
-import './LrnCard.js';
 
 export class LearningScaffold extends LitElement {
   static get tag() {
@@ -8,7 +7,17 @@ export class LearningScaffold extends LitElement {
 
   constructor() {
     super();
-    this.type = '';
+    this.type = 'math';
+
+    /*
+    Saw this on another repo and wondering what this does
+    its appending subContent to the shadow Root but why and how? 
+    var subContent = this.childNodes;
+    console.log(subContent);
+    for(var i = 0; i<subContent.length; i++){
+      this.shadowRoot.appendChild(subContent[i]);
+    }
+*/
   }
 
   static get properties() {
@@ -21,42 +30,33 @@ export class LearningScaffold extends LitElement {
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
         this.myIcon = 'beaker';
-        this.mainheader = 'Unit 1';
-        this.subheader = 'Chem Connection';
-      }
-      if (propName === 'type' && this[propName] === 'objective') {
-        this.myIcon = 'lightbulb';
-        this.mainheader = 'Unit 1';
-        this.subheader = 'Did you know?';
-      }
-      if (propName === 'type' && this[propName] === 'fact') {
-        this.myIcon = 'question';
-        this.mainheader = 'Unit 1';
-        this.subheader = 'shit idk';
       }
     });
   }
 
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
+  }
+
   static get styles() {
     return css`
-      lrn-card[type='science']::part(banner) {
-        background-color: 'blue';
-      }
-      lrn-card[type='objective']::part(banner) {
-        background-color: 'green';
-      }
-      lrn-card[type='fact']::part(banner) {
-        background-color: 'red';
+      :host {
+        display: flex;
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        height: auto;
+        width: inherit;
       }
     `;
   }
 
   render() {
     return html`
-      <div>
-        <lrn-card type="${this.type}">
-          <div slot="header"></div>
-        </lrn-card>
+      <div class="body-content">
+        <slot></slot>
       </div>
     `;
   }
