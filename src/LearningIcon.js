@@ -16,7 +16,14 @@ export class LearningIcon extends SimpleColors {
 
   constructor() {
     super();
+    this.type = 'math';
+    this.iconHeight = 'inherit';
+    this.iconWidth = 'inherit';
     this.myIcon = null;
+    this.iconValue = new Map();
+    this.iconValue.set('math', lightbulb);
+    this.iconValue.set('science', beaker);
+    this.iconValue.set('question', question);
     this.dark = false;
     this.accentColor = 'blue';
   }
@@ -26,34 +33,28 @@ export class LearningIcon extends SimpleColors {
       ...super.properties,
       type: { type: String, reflect: true },
       myIcon: { type: String },
+      iconValue: { type: Map },
       iconHeight: { type: String, attribute: 'icon-height', reflect: true },
       iconWidth: { type: String, attribute: 'icon-width', reflect: true },
     };
   }
 
   updated(changedProperties) {
-    super.updated(changedProperties);
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'beaker') {
-        this.myIcon = 'beaker';
-      }
-      if (propName === 'type' && this[propName] === 'lightbulb') {
-        this.myIcon = 'lightbulb';
-      }
-      if (propName === 'type' && this[propName] === 'question') {
-        this.myIcon = 'question';
-      }
+    changedProperties.forEach(() => {
+      this.style.setProperty('--icon-height', this.iconHeight);
+      this.style.setProperty('--icon-width', this.iconWidth);
     });
   }
 
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
-      // this.style.setProperty('--icon-scale', this.iconScale);
-      // this.style.backgroundColor = 'blue';
+      this.style.setProperty('--icon-height', this.iconHeight);
+      this.style.setProperty('--icon-width', this.iconWidth);
     }
   }
 
+  // What does this do? Really?
   connectedCallback() {
     super.connectedCallback();
   }
@@ -91,27 +92,15 @@ export class LearningIcon extends SimpleColors {
   }
 
   render() {
-    if (this.icon === 'lightbulb') {
-      return html`
-        <div id="bannerElement">
-          <img part="icon" src="${lightbulb}" alt="" />
-        </div>
-      `;
-    }
-    if (this.icon === 'beaker') {
-      return html`
-        <div id="bannerElement">
-          <img part="icon" src="${beaker}" alt="" />
-        </div>
-      `;
-    }
-    if (this.icon === 'question') {
-      return html`
-        <div id="bannerElement">
-          <img part="icon" src="${question}" alt="" />
-        </div>
-      `;
-    }
-    return null;
+    return html`
+      <div id="learning-icon">
+        <img
+          part="icon"
+          id="icon"
+          src="${this.iconValue.get(this.type)}"
+          alt="learning card ${this.type} icon"
+        />
+      </div>
+    `;
   }
 }
