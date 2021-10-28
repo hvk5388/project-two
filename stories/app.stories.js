@@ -3,20 +3,20 @@ import '../src/app.js';
 
 export default {
   title: 'Project two',
-  component: 'learning-card',
+  component: 'lrn-card',
   argTypes: {
     type: { control: 'text' },
   },
 };
 
-
 function Template({ type = "math", slot }) {
   return html`
-    <learning-card type="${type}">
+    <lrn-card type="${type}">
     ${slot}
-    </learning-card>
+    </lrn-card>
   `;
 }
+
 export const Card = Template.bind({});
 
 export const ScienceCard = Template.bind({});

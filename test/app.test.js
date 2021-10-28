@@ -6,7 +6,7 @@ import '../src/app.js';
 describe('LearningCard', () => {
   let element;
   beforeEach(async () => {
-    element = await fixture(html`<learning-card></learning-card>`);
+    element = await fixture(html`<lrn-card></lrn-card>`);
   });
 
   it('renders a h1', () => {
