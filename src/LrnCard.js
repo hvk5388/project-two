@@ -1,5 +1,10 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
+// dependencies / things imported
+import './LearningCardBanner.js';
+import './LearningIcon.js';
+import './LearningScaffold.js';
+import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 // import { LearningScaffold } from './LearningScaffold';
 // import { LearningIcon } from './LearningIcon';
@@ -15,11 +20,39 @@ Probably just tons of small dumb mistakes in here that need cleaning up
 Want to import three different versions of our button with 3 different styles/links for each card
 */
 
+
+/*
+TODO: 
+Try really hard not to put my fist through this screen 
+Figure out why icons not being slotted into card banner 
+Once Icons added to the cards edit body to have less whitespace 
+Add Links/Button to "additional resources" this could be another card BUTTTTT
+I would like it to be an icon with an "I" that you can click and be taken to another site relevant to
+the info on the card 
+HOW THE FUCK MY CODE SO DIFFERNT 
+*/
+
+// this is the base path to the assets calculated at run time
+// this ensures that assets are shipped correctly when building the demo
+// on github pages, or when people reuse assets outside your elements in production
+// because this won't change we can leverage as an internal variable without being
+// declared in properties. This let's us ship the icons while referencing them correctly
+
+// const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
+// const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
+// const question = new URL('../assets/question.svg', import.meta.url).href;
+
+// EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
+// which has the magic life-cycles and developer experience below added
+
+
 export class LrnCard extends SimpleColors {
   static get tag() {
     return 'lrn-card';
   }
 
+  // HTMLElement life-cycle, built in; use this for setting defaults
+  // Use this to get icons
   constructor() {
     super();
     this.type = 'objective';
@@ -33,6 +66,7 @@ export class LrnCard extends SimpleColors {
     /* this.backColor = 'blue'; */
   }
 
+  // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
   static get properties() {
     return {
       ...super.properties,
@@ -43,6 +77,8 @@ export class LrnCard extends SimpleColors {
       listElemOne: { type: String },
       listElemTwo: { type: String },
       listElemThree: { type: String },
+      // attribute helps us bind the JS spec for variables names to the HTML spec
+      /*myIcon: { type: String, attribute: 'my-icon' },*/
       /* backColor: { type: String }, */
     };
   }
@@ -82,16 +118,22 @@ export class LrnCard extends SimpleColors {
     });
   }
 
+    // Lit life-cycle; this fires the 1st time the element is rendered on the screen
+  // this is a sign it is safe to make calls to this.shadowRoot
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
     }
   }
 
+  // HTMLElement life-cycle, element has been connected to the page / added or moved
+  // this fires EVERY time the element is moved
   connectedCallback() {
     super.connectedCallback();
   }
 
+  // HTMLElement life-cycle, element has been removed from the page OR moved
+  // this fires every time the element moves
   disconnectedCallback() {
     super.disconnectedCallback();
   }
@@ -110,7 +152,10 @@ export class LrnCard extends SimpleColors {
     });
   }
   */
-
+// CSS - specific to Lit
+  // CSS MEDIA QUERIES!!!
+  // Pixel based, development?!
+  // Render all tags and stlye img in styles???
   static get styles() {
     return [
       ...super.styles,
@@ -136,8 +181,8 @@ export class LrnCard extends SimpleColors {
 
         img {
           display: inline-flex;
-          height: var(--learning-card-height, 100px);
-          width: var(--learning-card-width, 100px);
+          height: var(--lrn-card-height, 100px);
+          width: var(--lrn-card-width, 100px);
           background-color: 'green';
         }
         summary {
