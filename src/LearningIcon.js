@@ -16,7 +16,7 @@ export class LearningIcon extends SimpleColors {
 
   constructor() {
     super();
-    this.icon = null;
+    this.myIcon = null;
     this.dark = false;
     this.accentColor = 'blue';
   }
@@ -24,10 +24,10 @@ export class LearningIcon extends SimpleColors {
   static get properties() {
     return {
       ...super.properties,
-      type: { type: String },
-      icon: { type: String },
-      // iconScale: { type: String, attribute: 'icon-scale', reflect: true },
-      // bgColor: { type: String, attribute: 'bg-color', reflect: true },
+      type: { type: String, reflect: true },
+      myIcon: { type: String },
+      iconHeight: { type: String, attribute: 'icon-height', reflect: true },
+      iconWidth: { type: String, attribute: 'icon-width', reflect: true },
     };
   }
 
@@ -35,13 +35,13 @@ export class LearningIcon extends SimpleColors {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'beaker') {
-        this.icon = 'beaker';
+        this.myIcon = 'beaker';
       }
       if (propName === 'type' && this[propName] === 'lightbulb') {
-        this.icon = 'lightbulb';
+        this.myIcon = 'lightbulb';
       }
       if (propName === 'type' && this[propName] === 'question') {
-        this.icon = 'question';
+        this.myIcon = 'question';
       }
     });
   }
@@ -68,10 +68,8 @@ export class LearningIcon extends SimpleColors {
       css`
         :host {
           display: block;
-
-          height: var(--icon-scale, inherit);
-          width: var(--icon-scale, inherit);
-          position: absolute;
+          height: var(--icon-height, inherit);
+          width: var(--icon-width, inherit);
         }
         image {
           display: inline-flex;
@@ -83,6 +81,10 @@ export class LearningIcon extends SimpleColors {
         #banner {
           display: flex;
           flex-direction: row;
+        }
+        #icon {
+          width: inherit;
+          height: inherit;
         }
       `,
     ];
