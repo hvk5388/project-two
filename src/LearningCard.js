@@ -1,23 +1,43 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
-import "./learning-header.js";
+import './LearningCardBanner.js';
+import './LearningIcon.js';
+import './LearningScaffold.js';
+import './LrnCard.js';
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
+
+/*
+TODO: 
+Try really hard not to put my fist through this screen 
+Figure out why icons not being slotted into card banner 
+Once Icons added to the cards edit body to have less whitespace 
+Add Links/Button to "additional resources" this could be another card BUTTTTT
+I would like it to be an icon with an "I" that you can click and be taken to another site relevant to
+the info on the card 
+HOW THE FUCK MY CODE SO DIFFERNT 
+*/
 
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
 // on github pages, or when people reuse assets outside your elements in production
 // because this won't change we can leverage as an internal variable without being
 // declared in properties. This let's us ship the icons while referencing them correctly
-const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
+
+// const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
+// const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
+// const question = new URL('../assets/question.svg', import.meta.url).href;
+
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
-export class LearningCard extends IntersectionObserverMixin(LitElement){
+
+export class LearningCard extends IntersectionObserverMixin(LitElement) {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
     return 'learning-card';
   }
 
   // HTMLElement life-cycle, built in; use this for setting defaults
+  // Use this to get icons
   constructor() {
     super();
     this.myIcon = null;
@@ -39,8 +59,17 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
   // this allows you to react to variables changing and use javascript to perform logic
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'objective') {
+        this.icon = 'lightbulb';
+        this.subheading = 'Learning Objectives';
+      }
       if (propName === 'type' && this[propName] === 'science') {
-        this.myIcon = 'beaker';
+        this.icon = 'beaker';
+        this.subheading = 'Chem Connection';
+      }
+      if (propName === 'type' && this[propName] === 'question') {
+        this.icon = 'question';
+        this.subheading = 'Did You Know?';
       }
     });
   }
@@ -66,6 +95,9 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
   }
 
   // CSS - specific to Lit
+  // CSS MEDIA QUERIES!!!
+  // Pixel based, development?!
+  // Render all tags and stlye img in styles???
   static get styles() {
     return css`
       :host {
@@ -74,6 +106,12 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
       /* this is how you match something on the tag itself like <learning-card type="math"> and then style the img inside */
       :host([type='math']) img {
         background-color: purple;
+      }
+      :host([type='science']) img {
+        background-color: yellow;
+      }
+      :host([type='question']) img {
+        background-color: pink;
       }
       img {
         display: inline-flex;
@@ -85,42 +123,13 @@ export class LearningCard extends IntersectionObserverMixin(LitElement){
   }
 
   // HTML - specific to Lit
+  // Is <learning-header> now invalid since I deleted that file?
+  // I feel like we don't need a learning-header and learning-sub-header js files to do this...
+  // Removed everything from render here and it still renders the card???
+  // If I removed everything then how is the card being imported
+
   render() {
-    return html` ${this.elementVisible
-    ? html`
-      <h1>cool</h1>
-      <div>${this.type}</div>
-      <div>
-      <learning-header> Test the Header </learning-header>
-        <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
-          <slot name="header"></slot>
-        </div>
-        <img part="icon" src="${beaker}" alt=""/>
-        <img part="icon" src="${lightbulb}" />
-        <img part="icon" src="${question}" alt=""/>
-        <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
-          <slot name="content"></slot>
-          <slot></slot>
-        <h1>Project 2: Card</h1>
-        <div>
-          <div
-            class="slot-wrapper"
-            data-label="Header"
-            data-layout-slotname="header"
-          >
-            <slot name="header"></slot>
-          </div>
-          <img part="icon" src="${beaker}" alt="" />
-          <div
-            class="slot-wrapper"
-            data-label="Content"
-            data-layout-slotname="content"
-          >
-            <slot name="content"></slot>
-            <slot></slot>
-          </div>
-        </div>
-      `:``}`
+    return html``;
   }
 
   // HAX specific callback

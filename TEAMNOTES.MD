@@ -1,5 +1,19 @@
 ## Status check ins
 These are dedicated status check-ins as this is a multi-week project
+
+ 
+
+=======
+### Class: 10/19/21 
+What you learned from the example Chuck presented.
+  Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
+  What approaches can you leverage from his example to enhance your team's element?
+Making different card types and leverage stuff from one card to the next.
+  How could you take his approach and envision a more flexible version?
+  We can tie in what other groups are trying to do and also check out Chuck's element to see how we can wire up different styles and functionality.
+  Add different dynamics and styles
+  What are your next steps?
+  Continue working on getting the files separated and leverage other people's code to get us help and Chuck's code.
 ### Check-in 1
 - Possible names of these 4 elements 
   1. link-icon
@@ -35,9 +49,25 @@ These are dedicated status check-ins as this is a multi-week project
   Worked on adding different elements, such as the header, subheader, and icon on the page. Were having issues with merging/pulling/pushing to github since we 
   are working through one repo. Most of the stuff is there, just need to reorganize and make it appear more visually appealing. More work and questions
   to be brought up during the week and in-class during demonstrations.
+
+  What you learned from the example Chuck presented.
+  Support code for potential link, such as in our button. Multiple types of cards, potential animations for icons when visable.
+  What approaches can you leverage from his example to enhance your team's element?
+Making different card types and leverage stuff from one card to the next.
+  How could you take his approach and envision a more flexible version?
+  We can tie in what other groups are trying to do and also check out Chuck's element to see how we can wire up different styles and functionality.
+  What are your next steps?
+  Continue working on getting the files separated and leverage other people's code to get us help. 
 ### Check-in 3
-- 
-- 
+  - We have made progress with the drop down functionality. The icons are running well and the headers/ sub headers are great. We plan to update the body and styling to make it better and more visually appealing.
+  - Fixed an issue with yarn where trying to pull changes from group members with different versions of yarn created issues with the yarn.lock file. This can be fixed by deleting the yarn.lock file, running yarn install, and adding .yarn and yarn.lock to the .gitignore.  
+  - Our biggest problems are with the github repository. All of us have run into issues with pull requests and merge conflicts. Hannah specifically has been struggling a lot wiht intersection observer. Even when she adds it, she cannot seem to actually get it to do anything. 
+  - Next Steps
+  1. Hannah - clean up and finish the icon
+  2. Taylor - styling the header to look like the header
+  3. Evan - develop card scaffolding
+  4. Colton - work on the body allowing lists
+  
 ### Check-in 4
 -
 -
@@ -89,3 +119,4 @@ What should we call each of them?</b>
     Notes from other groups: Other groups are working on each individual element first like the header, banner, icon, and scaffolding. 
     Next Steps: Our next steps are to get the icons and banners working with functional APIs. 
 
+   
