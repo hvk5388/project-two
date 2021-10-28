@@ -50,7 +50,7 @@ export class LrnCard extends SimpleColors {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.mainheader = 'Unit 1';
+        this.mainheader = 'Unit 2';
         this.subheader = 'Chem Connection';
         this.listElemOne = 'What makes an element an Isotope?';
         this.listElemTwo = 'Quarks and Gluons make up what?';
@@ -68,7 +68,7 @@ export class LrnCard extends SimpleColors {
         this.backColor = '#d07f3b';
       }
       if (propName === 'type' && this[propName] === 'fact') {
-        this.mainheader = 'Unit 1';
+        this.mainheader = 'Unit 3';
         this.subheader = 'Did You Know?';
         this.listElemOne =
           'Walter White used High School Chemistry Equipment to cook meth?';
@@ -115,11 +115,7 @@ export class LrnCard extends SimpleColors {
           width: var(--learning-card-width, 100px);
           background-color: 'green';
         }
-        /*
-When deleting summary the cards get all out of whack
-Possible issue with icons here 
-Any chance I can use this to dynamically import the icons? 
-*/
+
         summary {
           list-style-position: inside;
           list-style-image: url('../assets/beaker.svg');
@@ -177,13 +173,12 @@ Any chance I can use this to dynamically import the icons?
               data-label="header"
               data-layout-slotname="header"
             >
+              <!-- div slot ="main header" doesn't change anything when I delete it -->
               <lrn-card-banner type="${this.type}">
                 <div slot="main header">
                   <slot name="mainheader">${this.subheader}</slot>
                 </div>
-                <!-- the sub-header div is rendering the learning objectives on the side of the card -->
-                <!-- How can I replace the subheader with icons? -->
-                <!-- update: The icons show up on the card but aren't rendering -->
+                <!-- update: subheader shows text in the icon -->
                 <div slot="sub-header">
                   <slot name="subheader">${this.subheader}</slot>
                 </div>
