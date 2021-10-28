@@ -1,6 +1,17 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 
+// import { LearningScaffold } from './LearningScaffold';
+// import { LearningIcon } from './LearningIcon';
+
+/* 
+Main Issues/Areas of Concern: 
+Clearly most of the rendering of the card is going on here 
+Still having trouble dynamically importing icons into the card 
+I got it to kind of import icons earlier but not where I wanted them 
+Main issue is with dynamic rendering and why I can't get the icons to render in the card
+*/
+
 export class LrnCard extends SimpleColors {
   static get tag() {
     return 'lrn-card';
@@ -9,7 +20,7 @@ export class LrnCard extends SimpleColors {
   constructor() {
     super();
     this.myIcon = null;
-    this.type = '';
+    this.type = 'math';
     this.accentColor = 'blue';
     this.dark = false;
     this.header = 'Header';
@@ -22,9 +33,10 @@ export class LrnCard extends SimpleColors {
 
   static get properties() {
     return {
+      ...super.properties,
       type: { type: String, reflect: true },
       myIcon: { type: String, attribute: 'my-icon' },
-      header: { type: String },
+      header: { type: String, attribute: 'Header', reflect: true },
       subheader: { type: String },
       listElemOne: { type: String },
       listElemTwo: { type: String },
@@ -90,6 +102,8 @@ export class LrnCard extends SimpleColors {
         :host {
           display: block;
           background-color: 'white';
+          height: inherit;
+          width: inherit;
         }
 
         :host([type='math']) img {
