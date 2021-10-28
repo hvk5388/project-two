@@ -76,7 +76,6 @@ export class LearningIcon extends SimpleColors {
           width: var(--lrn-card-width, 150px);
           background-color: transparent;
         }
-
         #banner {
           display: flex;
           flex-direction: row;

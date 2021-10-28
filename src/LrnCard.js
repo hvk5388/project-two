@@ -104,24 +104,20 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-
         :host([type='math']) img {
           background-color: 'blue';
         }
-
         img {
           display: inline-flex;
           height: var(--learning-card-height, 100px);
           width: var(--learning-card-width, 100px);
           background-color: 'green';
         }
-
         summary {
           list-style-position: inside;
           list-style-image: url('../assets/beaker.svg');
           display: flex;
         }
-
         #drawerContents {
           display: flex;
           flex-direction: column;
@@ -173,16 +169,15 @@ export class LrnCard extends SimpleColors {
               data-label="header"
               data-layout-slotname="header"
             >
-              <!-- div slot ="main header" doesn't change anything when I delete it -->
               <lrn-card-banner
                 type="${this.type}"
                 style="background-color:${this.backColor};"
               >
-                <div slot="main header">
-                  <slot name="mainheader">${this.header}</slot>
+                <div slot="header">
+                  ${this.mainheader}>
+                  <slot name="mainheader">${this.mainheader}</slot>
                   <slot name="subheader">${this.subheader}</slot>
                 </div>
-                <!-- update: subheader shows text in the icon -->
               </lrn-card-banner>
             </div>
             <learning-card-banner
@@ -190,6 +185,8 @@ export class LrnCard extends SimpleColors {
               style="background-color:${this.backColor};"
             >
               <div slot="header">${this.mainheader}</div>
+              <slot name="main-header">${this.mainheader}</slot>
+              <slot name="sub-header">${this.subheader}</slot>
             </learning-card-banner>
           </summary>
           <div id="drawerContents">
