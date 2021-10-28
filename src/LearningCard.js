@@ -1,9 +1,21 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
 import './LearningCardBanner.js';
+import './LearningIcon.js';
+import './LearningScaffold.js';
+import './LrnCard.js';
 import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
-import './learning-header.js';
-import './learning-sub-header.js';
+
+/*
+TODO: 
+Try really hard not to put my fist through this screen 
+Figure out why icons not being slotted into card banner 
+Once Icons added to the cards edit body to have less whitespace 
+Add Links/Button to "additional resources" this could be another card BUTTTTT
+I would like it to be an icon with an "I" that you can click and be taken to another site relevant to
+the info on the card 
+HOW THE FUCK MY CODE SO DIFFERNT 
+*/
 
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
@@ -11,9 +23,9 @@ import './learning-sub-header.js';
 // because this won't change we can leverage as an internal variable without being
 // declared in properties. This let's us ship the icons while referencing them correctly
 
-const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
-const lightbulb = new URL('../assets/lighbulb.svg', import.meta.url).href;
-const question = new URL('../assets/question.svg', import.meta.url).href;
+// const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
+// const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
+// const question = new URL('../assets/question.svg', import.meta.url).href;
 
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
@@ -25,6 +37,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
   }
 
   // HTMLElement life-cycle, built in; use this for setting defaults
+  // Use this to get icons
   constructor() {
     super();
     this.myIcon = null;
@@ -94,99 +107,29 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
       :host([type='math']) img {
         background-color: purple;
       }
+      :host([type='science']) img {
+        background-color: yellow;
+      }
+      :host([type='question']) img {
+        background-color: pink;
+      }
       img {
         display: inline-flex;
         height: var(--learning-card-height, 100px);
         width: var(--learning-card-width, 100px);
         background-color: green;
       }
-      .slot-wrapper {
-        border: 1px solid #000000;
-        background-color: purple;
-      }
     `;
   }
 
   // HTML - specific to Lit
-  render() {
-    return html`
-      ${this.elementVisible
-        ? html`
-            <lrn-card-banner></lrn-card-banner>
-            <h1>Gabagool</h1>
-            <div>${this.type}</div>
-            <div>
-              <learning-header> Test the Header </learning-header>
+  // Is <learning-header> now invalid since I deleted that file?
+  // I feel like we don't need a learning-header and learning-sub-header js files to do this...
+  // Removed everything from render here and it still renders the card???
+  // If I removed everything then how is the card being imported
 
-              <div>
-                <div
-                  class="slot-wrapper"
-                  data-label="Header"
-                  data-layout-slotname="header"
-                >
-                  <slot name="header">
-                    <img part="icon" src="${beaker}" alt="" />
-                    <learning-header>This is the Header</learning-header>
-                    <learning-sub-header
-                      >This is the sub header</learning-sub-header
-                    >
-                  </slot>
-                </div>
-                <div
-                  class="slot-wrapper"
-                  data-label="Content"
-                  data-layout-slotname="content"
-                >
-                  <slot name="content"></slot>
-                  <slot></slot>
-                  <h1>Project 2: Card</h1>
-                  <div>
-                    <div
-                      class="slot-wrapper"
-                      data-label="Header"
-                      data-layout-slotname="header"
-                    >
-                      <slot name="header"></slot>
-                    </div>
-                    <img part="micon" src="${beaker}" alt="" />
-                    <img part="icon" src="${lightbulb}" alt="" />
-                    <img part="icon" src="${question}" alt="" />
-                    <div
-                      class="slot-wrapper"
-                      data-label="Content"
-                      data-layout-slotname="content"
-                    >
-                      <slot name="content"></slot>
-                      <slot></slot>
-                      <h1>Project 2: Figure out the fucking lightbulb</h1>
-                      <div>
-                        <div
-                          class="slot-wrapper"
-                          data-label="Header"
-                          data-layout-slotname="header"
-                        >
-                          <slot name="header"></slot>
-                        </div>
-                        <img part="icon" src="${lightbulb}" alt="" />
-                        <img part="icon" src="${lightbulb}" alt="" />
-                        <img part="icon" src="${lightbulb}" alt="" />
-                        <div
-                          class="slot-wrapper"
-                          data-label="Content"
-                          data-layout-slotname="content"
-                        >
-                          <slot name="content"></slot>
-                          <slot></slot>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `
-        : ``};
-    `;
+  render() {
+    return html``;
   }
 
   // HAX specific callback

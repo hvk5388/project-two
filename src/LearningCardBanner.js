@@ -1,5 +1,6 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
+import './LearningIcon.js';
 
 // const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 // const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
@@ -10,45 +11,17 @@ export class LearningCardBanner extends SimpleColors {
     return 'lrn-card-banner';
   }
 
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.lrnIcon = 'beaker';
-      }
-      if (propName === 'type' && this[propName] === 'objective') {
-        this.lrnIcon = 'lightbulb';
-      }
-      if (propName === 'type' && this[propName] === 'fact') {
-        this.lrnIcon = 'question';
-      }
-    });
-  }
-
-  firstUpdated(changedProperties) {
-    if (super.firstUpdated) {
-      super.firstUpdated(changedProperties);
-    }
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-  }
-
   constructor() {
     super();
+    this.type = null;
     this.accentColor = 'blue';
     this.dark = false;
   }
 
-  static get Properties() {
+  static get properties() {
     return {
       ...super.properties,
       type: { type: String, reflect: true },
-      lrnIcon: { type: String, attribute: 'lrn-Icon' },
     };
   }
 
@@ -61,6 +34,7 @@ export class LearningCardBanner extends SimpleColors {
           --lrn-card-banner-color1: purple;
           --lrn-card-banner-color2: white;
           --lrn-card-banner-color3: green;
+          font-family: 'sans-serif';
         }
 
         img {
@@ -107,21 +81,14 @@ export class LearningCardBanner extends SimpleColors {
   render() {
     return html`
       <div id="banner-element">
-        <lrn-card-icon
-          icon="${this.lrnIcon}"
-          type="${this.lrnIcon}"
-        ></lrn-card-icon>
+        <learning-icon type="${this.type}"></learning-icon>
         <div id="banner">
           <div id="header">
-            <slot id="header" name="header"></slot>
-            <slot id="sub-header"></slot>
+            <slot id="main-header" name="main-header"></slot>
+            <slot id="sub-header" name="sub-header"></slot>
           </div>
         </div>
       </div>
-  </div>
-  <script type = "module">
-      import './src/app.js';
-  </script>
     `;
   }
 }

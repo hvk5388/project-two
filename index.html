@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Put your description here.">
   <base href="/">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
   <style>
     html,
@@ -31,7 +32,7 @@
     }
 
     lrn-card[type = "objective"]::part(banner) {
-      background-color: chartreuse;
+      background-color: black;
     }
 
     lrn-card[type = "science"]::part(banner) {
@@ -45,7 +46,7 @@
     learning-card.two::part(icon) {
       --learning-card-height: 150px;
       --learning-card-width: 150px;
-      background-color: blue;
+      background-color: pink;
     }
     learning-card[type="science"]::part(icon) {
       width: 200px;
@@ -68,22 +69,22 @@
     }
 
   </style>
-  <title>Project Two: Bababooey Card</title>
+  <title>Project Two: Learning Card</title>
 </head>
 
 <body>
+  
+
   <ul class = "menu">
     <li><a href = "#" >Card demo</a></li>
     <li><a href = "/hax.html">HAX DEMO</a></li>
     </ul>
-  <title>Project Two: Card</title>
-</head>
+    
 
-<body>
   <div class="wrapper">
-    <lrn-card type = "objective"></lrn-card>
-    <lrn-card type = "science"></lrn-card>
-    <lrn-card type = "fact"></lrn-card>
+    <lrn-card type="objective"></lrn-card>
+    <lrn-card type="science"></lrn-card>
+    <lrn-card type="fact"></lrn-card>
     <learning-card class="one"></learning-card>
   </div>
   <script type="module">
