@@ -32,13 +32,12 @@ export class LearningCardBanner extends SimpleColors {
         :host {
           display: inline-block;
           /*
-          --lrn-card-banner-color1: purple;
+          --lrn-card-banner-color1: blue;
           --lrn-card-banner-color2: white;
           --lrn-card-banner-color3: green;
           */
           font-family: 'sans-serif';
         }
-
         img {
           display: inline-flex;
           height: var(--lrn-card-height, 150px);
@@ -66,7 +65,6 @@ export class LearningCardBanner extends SimpleColors {
           text-transform: uppercase;
           font-weight: 300;
         }
-
         #sub-header {
           font-size: 250%;
           text-transform: lowercase;
