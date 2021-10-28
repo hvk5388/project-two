@@ -50,7 +50,7 @@ export class LrnCard extends SimpleColors {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.mainheader = 'Unit 1';
+        this.mainheader = 'Unit 2';
         this.subheader = 'Chem Connection';
         this.listElemOne = 'What makes an element an Isotope?';
         this.listElemTwo = 'Quarks and Gluons make up what?';
@@ -68,7 +68,7 @@ export class LrnCard extends SimpleColors {
         this.backColor = '#d07f3b';
       }
       if (propName === 'type' && this[propName] === 'fact') {
-        this.mainheader = 'Unit 1';
+        this.mainheader = 'Unit 3';
         this.subheader = 'Did You Know?';
         this.listElemOne =
           'Walter White used High School Chemistry Equipment to cook meth?';
@@ -104,28 +104,20 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-
         :host([type='math']) img {
           background-color: 'blue';
         }
-
         img {
           display: inline-flex;
           height: var(--learning-card-height, 100px);
           width: var(--learning-card-width, 100px);
           background-color: 'green';
         }
-        /*
-When deleting summary the cards get all out of whack
-Possible issue with icons here 
-Any chance I can use this to dynamically import the icons? 
-*/
         summary {
           list-style-position: inside;
           list-style-image: url('../assets/beaker.svg');
           display: flex;
         }
-
         #drawerContents {
           display: flex;
           flex-direction: column;
@@ -177,20 +169,24 @@ Any chance I can use this to dynamically import the icons?
               data-label="header"
               data-layout-slotname="header"
             >
-              <lrn-card-banner type="${this.type}">
-                <div slot="main header">
-                  <slot name="mainheader">${this.subheader}</slot>
-                </div>
-                <!-- the sub-header div is rendering the learning objectives on the side of the card -->
-                <!-- How can I replace the subheader with icons? -->
-                <!-- update: The icons show up on the card but aren't rendering -->
-                <div slot="sub-header">
+              <lrn-card-banner
+                type="${this.type}"
+                style="background-color:${this.backColor};"
+              >
+                <div slot="header">
+                  ${this.mainheader}>
+                  <slot name="mainheader">${this.mainheader}</slot>
                   <slot name="subheader">${this.subheader}</slot>
                 </div>
               </lrn-card-banner>
             </div>
-            <learning-card-banner style="background-color:${this.backColor};">
+            <learning-card-banner
+              type="${this.type}"
+              style="background-color:${this.backColor};"
+            >
               <div slot="header">${this.mainheader}</div>
+              <slot name="main-header">${this.mainheader}</slot>
+              <slot name="sub-header">${this.subheader}</slot>
             </learning-card-banner>
           </summary>
           <div id="drawerContents">

@@ -21,10 +21,10 @@ export class LearningIcon extends SimpleColors {
         this.myIcon = beaker;
       }
       if (propName === 'type' && this[propName] === 'objective') {
-        this.myIcon = question;
+        this.myIcon = lightbulb;
       }
       if (propName === 'type' && this[propName] === 'fact') {
-        this.myIcon = lightbulb;
+        this.myIcon = question;
       }
       if (propName === 'iconHeight') {
         this.style.setProperty('--icon-height', this.iconHeight);
@@ -76,7 +76,6 @@ export class LearningIcon extends SimpleColors {
           width: var(--lrn-card-width, 150px);
           background-color: transparent;
         }
-
         #banner {
           display: flex;
           flex-direction: row;
