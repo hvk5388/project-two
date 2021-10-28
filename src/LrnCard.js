@@ -174,17 +174,21 @@ export class LrnCard extends SimpleColors {
               data-layout-slotname="header"
             >
               <!-- div slot ="main header" doesn't change anything when I delete it -->
-              <lrn-card-banner type="${this.type}">
+              <lrn-card-banner
+                type="${this.type}"
+                style="background-color:${this.backColor};"
+              >
                 <div slot="main header">
-                  <slot name="mainheader">${this.subheader}</slot>
-                </div>
-                <!-- update: subheader shows text in the icon -->
-                <div slot="sub-header">
+                  <slot name="mainheader">${this.header}</slot>
                   <slot name="subheader">${this.subheader}</slot>
                 </div>
+                <!-- update: subheader shows text in the icon -->
               </lrn-card-banner>
             </div>
-            <learning-card-banner style="background-color:${this.backColor};">
+            <learning-card-banner
+              type="${this.type}"
+              style="background-color:${this.backColor};"
+            >
               <div slot="header">${this.mainheader}</div>
             </learning-card-banner>
           </summary>
