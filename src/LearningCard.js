@@ -42,6 +42,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
     super();
     this.myIcon = null;
     this.type = 'math';
+    this.accentColor = 'blue';
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -104,15 +105,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
         display: block;
       }
       /* this is how you match something on the tag itself like <learning-card type="math"> and then style the img inside */
-      :host([type='math']) img {
-        background-color: purple;
-      }
-      :host([type='science']) img {
-        background-color: yellow;
-      }
-      :host([type='question']) img {
-        background-color: pink;
-      }
+
       img {
         display: inline-flex;
         height: var(--learning-card-height, 100px);

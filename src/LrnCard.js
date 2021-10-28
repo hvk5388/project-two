@@ -30,7 +30,7 @@ export class LrnCard extends SimpleColors {
     this.listElemOne = 'test one';
     this.listElemTwo = 'test two';
     this.listElemThree = 'test three';
-    this.backColor = 'purple';
+    /* this.backColor = 'blue'; */
   }
 
   static get properties() {
@@ -39,10 +39,11 @@ export class LrnCard extends SimpleColors {
       type: { type: String, reflect: true },
       header: { type: String, reflect: true },
       subheader: { type: String },
+      accentColor: { type: String },
       listElemOne: { type: String },
       listElemTwo: { type: String },
       listElemThree: { type: String },
-      backColor: { type: String },
+      /* backColor: { type: String }, */
     };
   }
 
@@ -56,7 +57,8 @@ export class LrnCard extends SimpleColors {
         this.listElemTwo = 'Quarks and Gluons make up what?';
         this.listElemThree =
           'What was the first element created after the big bang?';
-        this.backColor = '#418449';
+        this.accentColor = 'green';
+        /* '#418449' */
       }
       if (propName === 'type' && this[propName] === 'objective') {
         this.mainheader = 'Unit 1';
@@ -65,7 +67,7 @@ export class LrnCard extends SimpleColors {
           'Describe the subatomic particles that make up an atom.';
         this.listElemTwo = 'Explain how these particles work together.';
         this.listElemThree = 'Why are these particles so important?';
-        this.backColor = '#d07f3b';
+        this.accentColor = 'yellow';
       }
       if (propName === 'type' && this[propName] === 'fact') {
         this.mainheader = 'Unit 3';
@@ -75,7 +77,7 @@ export class LrnCard extends SimpleColors {
         this.listElemTwo = 'Walts meth was so good like 98% purity.';
         this.listElemThree =
           'Anyways you should watch breaking bad its a great show.';
-        this.backColor = '#376b9c';
+        this.accentColor = 'blue';
       }
     });
   }
@@ -94,6 +96,21 @@ export class LrnCard extends SimpleColors {
     super.disconnectedCallback();
   }
 
+  /* updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'science') {
+        this.accentColor = 'green';
+      }
+      else if (propName === 'type' && this[propName] === 'fact') {
+        this.accentColor = 'orange';
+      }
+      else if (propName === 'type' && this[propName] === 'objective') {
+        this.accentColor = 'purple';
+      }
+    });
+  }
+  */
+
   static get styles() {
     return [
       ...super.styles,
@@ -104,9 +121,19 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-        :host([type='math']) img {
-          background-color: 'blue';
+
+        :host([type='objective']) img {
+          background-color: var(--simple-colors-default-theme-accent-1);
         }
+
+        :host([type='science']) {
+          background-color: var(--simple-colors-default-theme-accent-5);
+        }
+
+        :host([type='fact']) {
+          background-color: var(--simple-colors-default-theme-accent-3);
+        }
+
         img {
           display: inline-flex;
           height: var(--learning-card-height, 100px);
@@ -171,7 +198,7 @@ export class LrnCard extends SimpleColors {
             >
               <lrn-card-banner
                 type="${this.type}"
-                style="background-color:${this.backColor};"
+                style="background-color:${this.accentColor};"
               >
                 <div slot="header">
                   ${this.mainheader}>
@@ -182,7 +209,7 @@ export class LrnCard extends SimpleColors {
             </div>
             <learning-card-banner
               type="${this.type}"
-              style="background-color:${this.backColor};"
+              style="background-color:${this.accentColor};"
             >
               <div slot="header">${this.mainheader}</div>
               <slot name="main-header">${this.mainheader}</slot>
