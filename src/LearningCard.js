@@ -117,7 +117,6 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
             <div>${this.type}</div>
             <div>
               <learning-header> Test the Header </learning-header>
-
               <div>
                 <div
                   class="slot-wrapper"
@@ -126,10 +125,10 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
                 >
                   <slot name="header">
                     <img part="icon" src="${beaker}" alt="" />
-                    <learning-header>This is the Header</learning-header>
+                    <learning-header>This is the Header </learning-header>
                     <learning-sub-header
-                      >This is the sub header</learning-sub-header
-                    >
+                      >This is the sub header
+                    </learning-sub-header>
                   </slot>
                 </div>
                 <div
@@ -148,7 +147,7 @@ export class LearningCard extends IntersectionObserverMixin(LitElement) {
                     >
                       <slot name="header"></slot>
                     </div>
-                    <img part="micon" src="${beaker}" alt="" />
+                    <img part="icon" src="${beaker}" alt="" />
                     <img part="icon" src="${lightbulb}" alt="" />
                     <img part="icon" src="${question}" alt="" />
                     <div
