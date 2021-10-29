@@ -9,28 +9,6 @@ import './LearningScaffold.js';
 // import { LearningScaffold } from './LearningScaffold';
 // import { LearningIcon } from './LearningIcon';
 
-/* 
-Main Issues/Areas of Concern: 
-Clearly most of the rendering of the card is going on here 
-Still having trouble dynamically importing icons into the card 
-I got it to kind of import icons earlier but not where I wanted them 
-Main issue is with dynamic rendering and why I can't get the icons to render in the card
-Update: I think my issue with the icons is with div or slot names being wrong or misspelled
-Probably just tons of small dumb mistakes in here that need cleaning up 
-Want to import three different versions of our button with 3 different styles/links for each card
-*/
-
-/*
-TODO: 
-Try really hard not to put my fist through this screen 
-Figure out why icons not being slotted into card banner 
-Once Icons added to the cards edit body to have less whitespace 
-Add Links/Button to "additional resources" this could be another card BUTTTTT
-I would like it to be an icon with an "I" that you can click and be taken to another site relevant to
-the info on the card 
-HOW THE FUCK MY CODE SO DIFFERNT 
-*/
-
 // this is the base path to the assets calculated at run time
 // this ensures that assets are shipped correctly when building the demo
 // on github pages, or when people reuse assets outside your elements in production
@@ -91,8 +69,7 @@ export class LrnCard extends SimpleColors {
         this.listElemTwo = 'Quarks and Gluons make up what?';
         this.listElemThree =
           'What was the first element created after the big bang?';
-        this.accentColor = 'green';
-        /* '#418449' */
+        this.accentColor = 'purple';
       }
       if (propName === 'type' && this[propName] === 'objective') {
         this.mainheader = 'Unit 1';
@@ -101,7 +78,7 @@ export class LrnCard extends SimpleColors {
           'Describe the subatomic particles that make up an atom.';
         this.listElemTwo = 'Explain how these particles work together.';
         this.listElemThree = 'Why are these particles so important?';
-        this.accentColor = 'yellow';
+        this.accentColor = 'red';
       }
       if (propName === 'type' && this[propName] === 'fact') {
         this.mainheader = 'Unit 3';
@@ -111,7 +88,7 @@ export class LrnCard extends SimpleColors {
         this.listElemTwo = 'Walts meth was so good like 98% purity.';
         this.listElemThree =
           'Anyways you should watch breaking bad its a great show.';
-        this.accentColor = 'blue';
+        this.accentColor = 'orange';
       }
     });
   }
