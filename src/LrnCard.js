@@ -1,50 +1,10 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
-// dependencies / things imported
 import './LearningCardBanner.js';
 import './LearningIcon.js';
 import './LearningScaffold.js';
-import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
-
-// import { LearningScaffold } from './LearningScaffold';
-// import { LearningIcon } from './LearningIcon';
-
-/* 
-Main Issues/Areas of Concern: 
-Clearly most of the rendering of the card is going on here 
-Still having trouble dynamically importing icons into the card 
-I got it to kind of import icons earlier but not where I wanted them 
-Main issue is with dynamic rendering and why I can't get the icons to render in the card
-Update: I think my issue with the icons is with div or slot names being wrong or misspelled
-Probably just tons of small dumb mistakes in here that need cleaning up 
-Want to import three different versions of our button with 3 different styles/links for each card
-*/
-
-
-/*
-TODO: 
-Try really hard not to put my fist through this screen 
-Figure out why icons not being slotted into card banner 
-Once Icons added to the cards edit body to have less whitespace 
-Add Links/Button to "additional resources" this could be another card BUTTTTT
-I would like it to be an icon with an "I" that you can click and be taken to another site relevant to
-the info on the card 
-HOW THE FUCK MY CODE SO DIFFERNT 
-*/
-
-// this is the base path to the assets calculated at run time
-// this ensures that assets are shipped correctly when building the demo
-// on github pages, or when people reuse assets outside your elements in production
-// because this won't change we can leverage as an internal variable without being
-// declared in properties. This let's us ship the icons while referencing them correctly
-
-// const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
-// const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
-// const question = new URL('../assets/question.svg', import.meta.url).href;
-
-// EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
-// which has the magic life-cycles and developer experience below added
-
+// import '@thekodingkrab/cta-button/CEEK.js';
+// import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 export class LrnCard extends SimpleColors {
   static get tag() {
@@ -63,7 +23,6 @@ export class LrnCard extends SimpleColors {
     this.listElemOne = 'test one';
     this.listElemTwo = 'test two';
     this.listElemThree = 'test three';
-    /* this.backColor = 'blue'; */
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -78,8 +37,6 @@ export class LrnCard extends SimpleColors {
       listElemTwo: { type: String },
       listElemThree: { type: String },
       // attribute helps us bind the JS spec for variables names to the HTML spec
-      /*myIcon: { type: String, attribute: 'my-icon' },*/
-      /* backColor: { type: String }, */
     };
   }
 
@@ -94,7 +51,6 @@ export class LrnCard extends SimpleColors {
         this.listElemThree =
           'What was the first element created after the big bang?';
         this.accentColor = 'green';
-        /* '#418449' */
       }
       if (propName === 'type' && this[propName] === 'objective') {
         this.mainheader = 'Unit 1';
@@ -103,7 +59,7 @@ export class LrnCard extends SimpleColors {
           'Describe the subatomic particles that make up an atom.';
         this.listElemTwo = 'Explain how these particles work together.';
         this.listElemThree = 'Why are these particles so important?';
-        this.accentColor = 'yellow';
+        this.accentColor = 'orange';
       }
       if (propName === 'type' && this[propName] === 'fact') {
         this.mainheader = 'Unit 3';
@@ -118,7 +74,7 @@ export class LrnCard extends SimpleColors {
     });
   }
 
-    // Lit life-cycle; this fires the 1st time the element is rendered on the screen
+  // Lit life-cycle; this fires the 1st time the element is rendered on the screen
   // this is a sign it is safe to make calls to this.shadowRoot
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
@@ -138,24 +94,6 @@ export class LrnCard extends SimpleColors {
     super.disconnectedCallback();
   }
 
-  /* updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.accentColor = 'green';
-      }
-      else if (propName === 'type' && this[propName] === 'fact') {
-        this.accentColor = 'orange';
-      }
-      else if (propName === 'type' && this[propName] === 'objective') {
-        this.accentColor = 'purple';
-      }
-    });
-  }
-  */
-// CSS - specific to Lit
-  // CSS MEDIA QUERIES!!!
-  // Pixel based, development?!
-  // Render all tags and stlye img in styles???
   static get styles() {
     return [
       ...super.styles,
@@ -227,6 +165,14 @@ export class LrnCard extends SimpleColors {
           font-size: 14px;
           color: #6d6c6b;
         }
+        .buttonContainer {
+          display: flex;
+          flex-direction: row;
+          align-items: end;
+          justify-items: flex;
+          width: 100%;
+          padding-bottom: 10px;
+        }
       `,
     ];
   }
@@ -245,19 +191,15 @@ export class LrnCard extends SimpleColors {
                 type="${this.type}"
                 style="background-color:${this.accentColor};"
               >
-                <div slot="header">
-                  ${this.mainheader}>
-                  <slot name="mainheader">${this.mainheader}</slot>
-                  <slot name="subheader">${this.subheader}</slot>
-                </div>
+                <slot name="header">${this.mainheader}</slot>
+                <slot name="sub-header">${this.subheader}</slot>
               </lrn-card-banner>
             </div>
             <learning-card-banner
               type="${this.type}"
               style="background-color:${this.accentColor};"
             >
-              <div slot="header">${this.mainheader}</div>
-              <slot name="main-header">${this.mainheader}</slot>
+              <slot name="header">${this.mainheader}</slot>
               <slot name="sub-header">${this.subheader}</slot>
             </learning-card-banner>
           </summary>
