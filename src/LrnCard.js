@@ -166,8 +166,8 @@ export class LrnCard extends SimpleColors {
         #drawerContents {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          justify-content: left;
+          align-items: left;
         }
         #cardFrame {
           margin: 30px 0px;
@@ -219,9 +219,11 @@ export class LrnCard extends SimpleColors {
                 <div slot="header">
                   ${this.mainheader}>
                   <slot name="mainheader">${this.mainheader}</slot>
-                  <div>
-                    <slot name="subheader">${this.subheader}</slot>
-
+                  <div
+                    class="subheader"
+                    data-label="subheader"
+                    data-layout-slotname="header"
+                  >
                     <!-- Give subheader a class to target -->
                   </div>
                 </div>
