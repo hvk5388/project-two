@@ -44,7 +44,6 @@ export class LrnCard extends SimpleColors {
       import('./LearningIcon.js');
       import('./LearningScaffold.js');
     }, 0);
-    /* this.backColor = 'blue'; */
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
