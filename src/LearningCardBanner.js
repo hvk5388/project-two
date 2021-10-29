@@ -31,6 +31,7 @@ export class LearningCardBanner extends SimpleColors {
       css`
         :host {
           display: inline-block;
+          font-family: 'sans-serif';
           font-family: 'Open Sans', sans-serif;
           border: 1px transparent;
         }

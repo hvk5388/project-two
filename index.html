@@ -30,17 +30,7 @@
       font-weight: bold;
       padding: 40px;
     }
-/*
-    lrn-card[type = "objective"]::part(banner) {
-      background-color: black;
-    }
-    lrn-card[type = "science"]::part(banner) {
-      background-color: rgb(64, 47, 218);
-    }
-    lrn-card[type = "fact"]::part(banner) {
-      background-color: rgb(250, 60, 2);
-    }
-*/
+
     lrn-card.two::part(icon) {
       --lrn-card-height: 150px;
       --lrn-card-width: 150px;
@@ -80,16 +70,26 @@
     
 
   <div class="wrapper">
+    <lrn-card type="objective">
+      <cta-button icon="save"></cta-button>
+    </lrn-card>
+    <lrn-card type="science">
+      <cta-button icon="save"></cta-button>
+    </lrn-card>
+    <lrn-card type="fact">
+      <cta-button icon="save"></cta-button>
+    </lrn-card>
     <lrn-card type="objective"></lrn-card>
     <lrn-card type="science"></lrn-card>
     <lrn-card type="fact">
       <cta-button icon="save"></cta-button>
     </lrn-card>
-    
+   
     
   </div>
   <script type="module">
     import "./src/app.js";
+    import '@thekodingkrab/cta-button/cta-button.js';
   </script>
 </body>
 

@@ -1,26 +1,8 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
-// dependencies / things imported
 import './LearningCardBanner.js';
 import './LearningIcon.js';
 import './LearningScaffold.js';
-// import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
-
-// import { LearningScaffold } from './LearningScaffold';
-// import { LearningIcon } from './LearningIcon';
-
-// this is the base path to the assets calculated at run time
-// this ensures that assets are shipped correctly when building the demo
-// on github pages, or when people reuse assets outside your elements in production
-// because this won't change we can leverage as an internal variable without being
-// declared in properties. This let's us ship the icons while referencing them correctly
-
-// const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
-// const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
-// const question = new URL('../assets/question.svg', import.meta.url).href;
-
-// EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
-// which has the magic life-cycles and developer experience below added
 
 export class LrnCard extends SimpleColors {
   static get tag() {
@@ -188,9 +170,6 @@ export class LrnCard extends SimpleColors {
           font-size: 28px;
           font-weight: 400;
         }
-        ul {
-          padding: 0 80px 20px 80px;
-        }
         li {
           font-size: 14px;
           color: #6b6d6c;
@@ -226,6 +205,7 @@ export class LrnCard extends SimpleColors {
             <!-- Figure out how to style this subheader --> 
             <div slot="header">${this.mainheader}</div>
               <slot name="thesubheader">${this.subheader}
+            </slot>
 
             </slot>
 
@@ -235,11 +215,8 @@ export class LrnCard extends SimpleColors {
             </learning-card-banner>
           </summary>
           <div id="drawerContents">
-            <ul>
-              <li>${this.listElemOne}</li>
-              <li>${this.listElemTwo}</li>
-              <li>${this.listElemThree}</li>
-            </ul>
+          <slot>
+          </slot>
           </div>
         </details>
       </div>
