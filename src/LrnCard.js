@@ -14,13 +14,9 @@ export class LrnCard extends SimpleColors {
   constructor() {
     super();
     this.type = 'objective';
-    this.accentColor = 'blue';
     this.dark = false;
     this.header = 'Unit 1';
     this.subheader = 'learning objectives';
-    this.listElemOne = 'test one';
-    this.listElemTwo = 'test two';
-    this.listElemThree = 'test three';
     setTimeout(() => {
       import('./LearningCardBanner.js');
       import('./LearningIcon.js');
@@ -35,43 +31,25 @@ export class LrnCard extends SimpleColors {
       type: { type: String, reflect: true },
       header: { type: String, reflect: true },
       subheader: { type: String },
-      accentColor: { type: String },
-      listElemOne: { type: String },
-      listElemTwo: { type: String },
-      listElemThree: { type: String },
     };
   }
 
   updated(changedProperties) {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.mainheader = 'Unit 1';
-        this.subheader = 'Chem Connection';
-        this.listElemOne = 'What makes an element an Isotope?';
-        this.listElemTwo = 'Quarks and Gluons make up what?';
-        this.listElemThree =
-          'What was the first element created after the big bang?';
-        this.accentColor = 'purple';
-      }
       if (propName === 'type' && this[propName] === 'objective') {
         this.mainheader = 'Unit 1';
         this.subheader = 'Learning Objectives';
-        this.listElemOne =
-          'Describe the subatomic particles that make up an atom.';
-        this.listElemTwo = 'Explain how these particles work together.';
-        this.listElemThree = 'Why are these particles so important?';
-        this.accentColor = 'red';
       }
+
+      if (propName === 'type' && this[propName] === 'science') {
+        this.mainheader = 'Unit 1';
+        this.subheader = 'Chem Connection';
+      }
+
       if (propName === 'type' && this[propName] === 'fact') {
         this.mainheader = 'Unit 1';
         this.subheader = 'Did You Know?';
-        this.listElemOne =
-          'Walter White used High School Chemistry Equipment to cook meth?';
-        this.listElemTwo = 'Walts meth was so good like 98% purity.';
-        this.listElemThree =
-          'Anyways you should watch breaking bad its a great show.';
-        this.accentColor = 'orange';
       }
     });
   }
@@ -122,15 +100,6 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-        :host([type='objective']) {
-          background-color: var(--simple-colors-default-theme-red-2);
-        }
-        :host([type='science']) {
-          background-color: var(--simple-colors-default-theme-purple-2);
-        }
-        :host([type='fact']) {
-          background-color: var(--simple-colors-default-theme-orange-2);
-        }
         img {
           display: inline-flex;
           height: var(--lrn-card-height, 100px);
@@ -147,6 +116,8 @@ export class LrnCard extends SimpleColors {
           flex-direction: column;
           justify-content: left;
           align-items: left;
+          border: 1px solid;
+          box-shadow: 5px 5px #d3d3d3;
         }
         #cardFrame {
           margin: 30px 0px;
@@ -155,20 +126,6 @@ export class LrnCard extends SimpleColors {
         learning-card-banner {
           padding: 10x;
           width: 100%;
-        }
-        learning-card-banner div {
-          font-family: Helvetica;
-          text-transform: uppercase;
-          padding-left: 54px;
-        }
-        learning-card-banner div:nth-child(1) {
-          font-size: 24px;
-          font-weight: 100;
-          font-family: sans-serif;
-        }
-        learning-card-banner div:nth-child(2) {
-          font-size: 28px;
-          font-weight: 400;
         }
         li {
           font-size: 14px;
@@ -190,19 +147,16 @@ export class LrnCard extends SimpleColors {
             >
               <lrn-card-banner
                 type="${this.type}"
-                style="background-color:${this.accentColor};"
               >
               </lrn-card-banner>
             </div>
             <learning-card-banner
               type="${this.type}"
-              style="background-color:${this.accentColor};"
             >
             <div 
             class="thesubheader"
             data-label="thesubheader"
             >
-            <!-- Figure out how to style this subheader --> 
             <div slot="header">${this.mainheader}</div>
               <slot name="thesubheader">${this.subheader}
             </slot>
