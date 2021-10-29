@@ -221,9 +221,12 @@ export class LrnCard extends SimpleColors {
             >
             <div 
             class="thesubheader"
+            data-label="thesubheader"
             >
             <div slot="header">${this.mainheader}</div>
-              <slot name="sub-header">${this.subheader}</slot>
+              <slot name="thesubheader">${this.subheader}
+
+            </slot>
 
             </slot>
              </div>
