@@ -34,11 +34,9 @@
     lrn-card[type = "objective"]::part(banner) {
       background-color: black;
     }
-
     lrn-card[type = "science"]::part(banner) {
       background-color: rgb(64, 47, 218);
     }
-
     lrn-card[type = "fact"]::part(banner) {
       background-color: rgb(250, 60, 2);
     }
@@ -84,7 +82,10 @@
   <div class="wrapper">
     <lrn-card type="objective"></lrn-card>
     <lrn-card type="science"></lrn-card>
-    <lrn-card type="fact"></lrn-card>
+    <lrn-card type="fact">
+      <cta-button icon="save"></cta-button>
+    </lrn-card>
+    
     
   </div>
   <script type="module">
