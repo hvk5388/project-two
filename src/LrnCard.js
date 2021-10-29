@@ -143,14 +143,14 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-        :host([type='objective']) img {
-          background-color: var(--simple-colors-default-theme-accent-1);
+        :host([type='objective']) {
+          background-color: var(--simple-colors-default-theme-red-2);
         }
         :host([type='science']) {
-          background-color: var(--simple-colors-default-theme-accent-5);
+          background-color: var(--simple-colors-default-theme-purple-2);
         }
         :host([type='fact']) {
-          background-color: var(--simple-colors-default-theme-accent-3);
+          background-color: var(--simple-colors-default-theme-orange-2);
         }
         img {
           display: inline-flex;
@@ -170,8 +170,6 @@ export class LrnCard extends SimpleColors {
           align-items: center;
         }
         #cardFrame {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-            0 6px 20px 0 rgba(0, 0, 0, 0.19);
           margin: 30px 0px;
         }
         learning-card-banner {
@@ -181,7 +179,6 @@ export class LrnCard extends SimpleColors {
         learning-card-banner div {
           font-family: Helvetica;
           text-transform: uppercase;
-          color: white;
           padding-left: 54px;
         }
         learning-card-banner div:nth-child(1) {
@@ -198,7 +195,7 @@ export class LrnCard extends SimpleColors {
         }
         li {
           font-size: 14px;
-          color: #6d6c6b;
+          color: #6b6d6c;
         }
       `,
     ];
@@ -222,7 +219,11 @@ export class LrnCard extends SimpleColors {
                 <div slot="header">
                   ${this.mainheader}>
                   <slot name="mainheader">${this.mainheader}</slot>
-                  <slot name="subheader">${this.subheader}</slot>
+                  <div>
+                    <slot name="subheader">${this.subheader}</slot>
+
+                    <!-- Give subheader a class to target -->
+                  </div>
                 </div>
               </lrn-card-banner>
             </div>
@@ -233,7 +234,6 @@ export class LrnCard extends SimpleColors {
               <!-- do we need to set mainheader as a value in the connstructor to avoid 
             this issue with Unit 1 being repeated in the subheader? -->
               <div slot="header">${this.mainheader}</div>
-              <slot name="main-header">${this.mainheader}</slot>
               <slot name="sub-header">${this.subheader}</slot>
             </learning-card-banner>
           </summary>
