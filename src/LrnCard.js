@@ -169,6 +169,7 @@ export class LrnCard extends SimpleColors {
         #cardFrame {
           margin: 30px 0px;
         }
+
         learning-card-banner {
           padding: 10x;
           width: 100%;
@@ -218,10 +219,15 @@ export class LrnCard extends SimpleColors {
               type="${this.type}"
               style="background-color:${this.accentColor};"
             >
-              <!-- do we need to set mainheader as a value in the connstructor to avoid 
-            this issue with Unit 1 being repeated in the subheader? -->
-              <div slot="header">${this.mainheader}</div>
+            <div 
+            class="thesubheader"
+            >
+            <div slot="header">${this.mainheader}</div>
               <slot name="sub-header">${this.subheader}</slot>
+
+            </slot>
+             </div>
+              
             </learning-card-banner>
           </summary>
           <div id="drawerContents">
