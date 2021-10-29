@@ -223,6 +223,7 @@ export class LrnCard extends SimpleColors {
             class="thesubheader"
             data-label="thesubheader"
             >
+            <!-- Figure out how to style this subheader --> 
             <div slot="header">${this.mainheader}</div>
               <slot name="thesubheader">${this.subheader}
 
