@@ -32,6 +32,8 @@ export class LearningCardBanner extends SimpleColors {
         :host {
           display: inline-block;
           font-family: 'sans-serif';
+          font-family: 'Open Sans', sans-serif;
+          border: 1px transparent;
         }
         :host([type='objective']) {
           background-color: var(--simple-colors-default-theme-orange-5);
@@ -72,7 +74,7 @@ export class LearningCardBanner extends SimpleColors {
 
   render() {
     return html`
-      <div id="banner-element">
+      <div id="banner-element" style="display: flex;">
         <learning-icon type="${this.type}"></learning-icon>
         <div id="banner">
           <div id="header">

@@ -74,6 +74,22 @@ export class LrnCard extends SimpleColors {
     super.disconnectedCallback();
   }
 
+  /* updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'type' && this[propName] === 'science') {
+        this.accentColor = 'green';
+      }
+      else if (propName === 'type' && this[propName] === 'fact') {
+        this.accentColor = 'orange';
+      }
+      else if (propName === 'type' && this[propName] === 'objective') {
+        this.accentColor = 'purple';
+      }
+    });
+  }
+  */
+  // CSS - specific to Lit
+
   static get styles() {
     return [
       ...super.styles,
@@ -106,6 +122,7 @@ export class LrnCard extends SimpleColors {
         #cardFrame {
           margin: 30px 0px;
         }
+
         learning-card-banner {
           padding: 10x;
           width: 100%;
@@ -143,6 +160,9 @@ export class LrnCard extends SimpleColors {
             <div slot="header">${this.mainheader}</div>
               <slot name="thesubheader">${this.subheader}
             </slot>
+
+            </slot>
+
             </slot>
              </div>
               
