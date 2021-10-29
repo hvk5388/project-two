@@ -8,7 +8,7 @@ import './LearningIcon.js';
 
 export class LearningCardBanner extends SimpleColors {
   static get tag() {
-    return 'lrn-card-banner';
+    return 'learning-card-banner';
   }
 
   constructor() {
@@ -33,35 +33,26 @@ export class LearningCardBanner extends SimpleColors {
           display: inline-block;
           font-family: 'sans-serif';
         }
-
+        :host([type='objective']) {
+          background-color: var(--simple-colors-default-theme-orange-5);
+        }
+        :host([type='science']) {
+          background-color: var(--simple-colors-default-theme-green-8);
+        }
+        :host([type='fact']) {
+          background-color: var(--simple-colors-default-theme-blue-6);
+        }
         img {
           display: inline-flex;
           height: var(--lrn-card-height, 150px);
           width: var(--lrn-card-width, 150px);
           background-color: transparent;
         }
-        #banner {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          background-color: transparent;
-          color: white;
-        }
-        #header {
-          padding: 10px;
-          margin: 10px;
-          display: inline-flex;
-          flex-direction: column;
-          justify-content: right;
-          align-items: right;
-        }
         #main-header {
           font-size: 200%;
           text-transform: uppercase;
           font-weight: 300;
         }
-
         #sub-header {
           font-size: 250%;
           text-transform: lowercase;
@@ -70,6 +61,10 @@ export class LearningCardBanner extends SimpleColors {
         #banner-element {
           display: flex;
           flex-direction: row;
+        }
+        .top {
+          justify-content: center;
+          align-items: center;
         }
       `,
     ];
@@ -81,8 +76,7 @@ export class LearningCardBanner extends SimpleColors {
         <learning-icon type="${this.type}"></learning-icon>
         <div id="banner">
           <div id="header">
-            <slot id="main-header" name="main-header"></slot>
-            <slot id="sub-header" name="sub-header"></slot>
+            <slot> </slot>
           </div>
         </div>
       </div>
