@@ -57,9 +57,6 @@ export class LrnCard extends SimpleColors {
       listElemOne: { type: String },
       listElemTwo: { type: String },
       listElemThree: { type: String },
-      // attribute helps us bind the JS spec for variables names to the HTML spec
-      /* myIcon: { type: String, attribute: 'my-icon' }, */
-      /* backColor: { type: String }, */
     };
   }
 
@@ -67,7 +64,7 @@ export class LrnCard extends SimpleColors {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.mainheader = 'Unit 2';
+        this.mainheader = 'Unit 1';
         this.subheader = 'Chem Connection';
         this.listElemOne = 'What makes an element an Isotope?';
         this.listElemTwo = 'Quarks and Gluons make up what?';
@@ -85,7 +82,7 @@ export class LrnCard extends SimpleColors {
         this.accentColor = 'red';
       }
       if (propName === 'type' && this[propName] === 'fact') {
-        this.mainheader = 'Unit 3';
+        this.mainheader = 'Unit 1';
         this.subheader = 'Did You Know?';
         this.listElemOne =
           'Walter White used High School Chemistry Equipment to cook meth?';
