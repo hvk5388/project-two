@@ -3,8 +3,6 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
 import './LearningCardBanner.js';
 import './LearningIcon.js';
 import './LearningScaffold.js';
-// import '@thekodingkrab/cta-button/CEEK.js';
-// import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
 
 export class LrnCard extends SimpleColors {
   static get tag() {
@@ -204,11 +202,7 @@ export class LrnCard extends SimpleColors {
             </learning-card-banner>
           </summary>
           <div id="drawerContents">
-            <ul>
-              <li>${this.listElemOne}</li>
-              <li>${this.listElemTwo}</li>
-              <li>${this.listElemThree}</li>
-            </ul>
+            <slot> </slot>
           </div>
         </details>
       </div>
