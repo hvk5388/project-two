@@ -32,8 +32,9 @@ export class LearningCardBanner extends SimpleColors {
         :host {
           display: inline-block;
           font-family: 'sans-serif';
+          font-family: 'Open Sans', sans-serif;
+          border: 1px transparent;
         }
-
         img {
           display: inline-flex;
           height: var(--lrn-card-height, 150px);
@@ -61,7 +62,6 @@ export class LearningCardBanner extends SimpleColors {
           text-transform: uppercase;
           font-weight: 300;
         }
-
         #sub-header {
           font-size: 250%;
           text-transform: lowercase;
@@ -71,13 +71,14 @@ export class LearningCardBanner extends SimpleColors {
           display: flex;
           flex-direction: row;
         }
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,500&display=swap');
       `,
     ];
   }
 
   render() {
     return html`
-      <div id="banner-element">
+      <div id="banner-element" style="display: flex;">
         <learning-icon type="${this.type}"></learning-icon>
         <div id="banner">
           <div id="header">
