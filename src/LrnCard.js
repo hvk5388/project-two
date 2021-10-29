@@ -215,7 +215,6 @@ export class LrnCard extends SimpleColors {
                 type="${this.type}"
                 style="background-color:${this.accentColor};"
               >
-                <!-- Removing div slot="header" doesn't change anything-->
               </lrn-card-banner>
             </div>
             <learning-card-banner
