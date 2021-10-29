@@ -16,11 +16,16 @@ export class LrnCard extends SimpleColors {
     this.type = 'objective';
     this.accentColor = 'blue';
     this.dark = false;
-    this.header = 'header';
-    this.subheader = 'subheader';
+    this.header = 'Unit 1';
+    this.subheader = 'learning objectives';
     this.listElemOne = 'test one';
     this.listElemTwo = 'test two';
     this.listElemThree = 'test three';
+    setTimeout(() => {
+      import('./LearningCardBanner.js');
+      import('./LearningIcon.js');
+      import('./LearningScaffold.js');
+    }, 0);
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -34,7 +39,6 @@ export class LrnCard extends SimpleColors {
       listElemOne: { type: String },
       listElemTwo: { type: String },
       listElemThree: { type: String },
-      // attribute helps us bind the JS spec for variables names to the HTML spec
     };
   }
 
@@ -42,13 +46,13 @@ export class LrnCard extends SimpleColors {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'type' && this[propName] === 'science') {
-        this.mainheader = 'Unit 2';
+        this.mainheader = 'Unit 1';
         this.subheader = 'Chem Connection';
         this.listElemOne = 'What makes an element an Isotope?';
         this.listElemTwo = 'Quarks and Gluons make up what?';
         this.listElemThree =
           'What was the first element created after the big bang?';
-        this.accentColor = 'green';
+        this.accentColor = 'purple';
       }
       if (propName === 'type' && this[propName] === 'objective') {
         this.mainheader = 'Unit 1';
@@ -57,17 +61,17 @@ export class LrnCard extends SimpleColors {
           'Describe the subatomic particles that make up an atom.';
         this.listElemTwo = 'Explain how these particles work together.';
         this.listElemThree = 'Why are these particles so important?';
-        this.accentColor = 'orange';
+        this.accentColor = 'red';
       }
       if (propName === 'type' && this[propName] === 'fact') {
-        this.mainheader = 'Unit 3';
+        this.mainheader = 'Unit 1';
         this.subheader = 'Did You Know?';
         this.listElemOne =
           'Walter White used High School Chemistry Equipment to cook meth?';
         this.listElemTwo = 'Walts meth was so good like 98% purity.';
         this.listElemThree =
           'Anyways you should watch breaking bad its a great show.';
-        this.accentColor = 'blue';
+        this.accentColor = 'orange';
       }
     });
   }
@@ -102,19 +106,15 @@ export class LrnCard extends SimpleColors {
           height: inherit;
           width: inherit;
         }
-
-        :host([type='objective']) img {
-          background-color: var(--simple-colors-default-theme-accent-1);
+        :host([type='objective']) {
+          background-color: var(--simple-colors-default-theme-red-2);
         }
-
         :host([type='science']) {
-          background-color: var(--simple-colors-default-theme-accent-5);
+          background-color: var(--simple-colors-default-theme-purple-2);
         }
-
         :host([type='fact']) {
-          background-color: var(--simple-colors-default-theme-accent-3);
+          background-color: var(--simple-colors-default-theme-orange-2);
         }
-
         img {
           display: inline-flex;
           height: var(--lrn-card-height, 100px);
@@ -129,12 +129,10 @@ export class LrnCard extends SimpleColors {
         #drawerContents {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          justify-content: left;
+          align-items: left;
         }
         #cardFrame {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-            0 6px 20px 0 rgba(0, 0, 0, 0.19);
           margin: 30px 0px;
         }
         learning-card-banner {
@@ -144,7 +142,6 @@ export class LrnCard extends SimpleColors {
         learning-card-banner div {
           font-family: Helvetica;
           text-transform: uppercase;
-          color: white;
           padding-left: 54px;
         }
         learning-card-banner div:nth-child(1) {
@@ -156,20 +153,9 @@ export class LrnCard extends SimpleColors {
           font-size: 28px;
           font-weight: 400;
         }
-        ul {
-          padding: 0 80px 20px 80px;
-        }
         li {
           font-size: 14px;
-          color: #6d6c6b;
-        }
-        .buttonContainer {
-          display: flex;
-          flex-direction: row;
-          align-items: end;
-          justify-items: flex;
-          width: 100%;
-          padding-bottom: 10px;
+          color: #6b6d6c;
         }
       `,
     ];
@@ -189,20 +175,28 @@ export class LrnCard extends SimpleColors {
                 type="${this.type}"
                 style="background-color:${this.accentColor};"
               >
-                <slot name="header">${this.mainheader}</slot>
-                <slot name="sub-header">${this.subheader}</slot>
               </lrn-card-banner>
             </div>
             <learning-card-banner
               type="${this.type}"
               style="background-color:${this.accentColor};"
             >
-              <slot name="header">${this.mainheader}</slot>
-              <slot name="sub-header">${this.subheader}</slot>
+            <div 
+            class="thesubheader"
+            data-label="thesubheader"
+            >
+            <!-- Figure out how to style this subheader --> 
+            <div slot="header">${this.mainheader}</div>
+              <slot name="thesubheader">${this.subheader}
+            </slot>
+            </slot>
+             </div>
+              
             </learning-card-banner>
           </summary>
           <div id="drawerContents">
-            <slot> </slot>
+          <slot>
+          </slot>
           </div>
         </details>
       </div>
