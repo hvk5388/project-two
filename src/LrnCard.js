@@ -39,6 +39,11 @@ export class LrnCard extends SimpleColors {
     this.listElemOne = 'test one';
     this.listElemTwo = 'test two';
     this.listElemThree = 'test three';
+    setTimeout(() => {
+      import('./LearningCardBanner.js');
+      import('./LearningIcon.js');
+      import('./LearningScaffold.js');
+    }, 0);
     /* this.backColor = 'blue'; */
   }
 
@@ -226,6 +231,8 @@ export class LrnCard extends SimpleColors {
               type="${this.type}"
               style="background-color:${this.accentColor};"
             >
+              <!-- do we need to set mainheader as a value in the connstructor to avoid 
+            this issue with Unit 1 being repeated in the subheader? -->
               <div slot="header">${this.mainheader}</div>
               <slot name="main-header">${this.mainheader}</slot>
               <slot name="sub-header">${this.subheader}</slot>
