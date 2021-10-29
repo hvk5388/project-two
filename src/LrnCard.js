@@ -34,8 +34,8 @@ export class LrnCard extends SimpleColors {
     this.type = 'objective';
     this.accentColor = 'blue';
     this.dark = false;
-    this.header = 'header';
-    this.subheader = 'subheader';
+    this.header = 'Unit 1';
+    this.subheader = 'learning objectives';
     this.listElemOne = 'test one';
     this.listElemTwo = 'test two';
     this.listElemThree = 'test three';
@@ -128,9 +128,7 @@ export class LrnCard extends SimpleColors {
   }
   */
   // CSS - specific to Lit
-  // CSS MEDIA QUERIES!!!
-  // Pixel based, development?!
-  // Render all tags and stlye img in styles???
+
   static get styles() {
     return [
       ...super.styles,
@@ -216,6 +214,7 @@ export class LrnCard extends SimpleColors {
                 type="${this.type}"
                 style="background-color:${this.accentColor};"
               >
+                <!-- Removing div slot="header" doesn't change anything-->
                 <div slot="header">
                   ${this.mainheader}>
                   <slot name="mainheader">${this.mainheader}</slot>
