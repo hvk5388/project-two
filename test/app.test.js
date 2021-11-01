@@ -41,7 +41,7 @@ describe('LearningCard', () => {
 
     const list = element.querySelector('ul');
     expect(list).to.exist;
-    expect(list.children.length).to.equal(1);
+    expect(list.children.length).to.equal(3);
   });
 
   it('checks updatedProperties', () => {
