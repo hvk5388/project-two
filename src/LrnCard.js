@@ -74,20 +74,6 @@ export class LrnCard extends SimpleColors {
     super.disconnectedCallback();
   }
 
-  /* updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'type' && this[propName] === 'science') {
-        this.accentColor = 'green';
-      }
-      else if (propName === 'type' && this[propName] === 'fact') {
-        this.accentColor = 'orange';
-      }
-      else if (propName === 'type' && this[propName] === 'objective') {
-        this.accentColor = 'purple';
-      }
-    });
-  }
-  */
   // CSS - specific to Lit
 
   static get styles() {
@@ -99,6 +85,8 @@ export class LrnCard extends SimpleColors {
           background-color: 'white';
           height: inherit;
           width: inherit;
+          font-family: 'sans-serif';
+          font-family: 'Open Sans', sans-serif;
         }
         img {
           display: inline-flex;
@@ -106,11 +94,30 @@ export class LrnCard extends SimpleColors {
           width: var(--lrn-card-width, 100px);
           background-color: 'green';
         }
+
         summary {
           list-style-position: inside;
           list-style-image: url('../assets/beaker.svg');
           display: flex;
         }
+
+        .larger {
+          color: white;
+          font-family: 'sans-serif';
+          font-family: 'Open Sans', sans-serif;
+          font-size: xxx-large;
+          text-transform: uppercase;
+        }
+
+        .smaller {
+          color: white;
+          font-family: 'sans-serif';
+          font-family: 'Open Sans', sans-serif;
+          font-size: xx-large;
+          font-weight: 900;
+          text-transform: uppercase;
+        }
+
         #drawerContents {
           display: flex;
           flex-direction: column;
@@ -157,8 +164,8 @@ export class LrnCard extends SimpleColors {
             class="thesubheader"
             data-label="thesubheader"
             >
-            <div slot="header">${this.mainheader}</div>
-              <slot name="thesubheader">${this.subheader}
+            <div class= "larger" slot="header">${this.mainheader}</div>
+              <slot class= "smaller" name="thesubheader">${this.subheader}
             </slot>
 
             </slot>
