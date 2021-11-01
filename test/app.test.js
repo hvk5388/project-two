@@ -60,20 +60,20 @@ describe('LearningCard', () => {
     }, 100);
   });
 
-  it('check card properties', async () => {
+  it('check card content', async () => {
     const element2 = await fixture(html` <lrn-card type="objective">
       <span slot="header">Unit 1</span>
+      <span slot="subheader">Learning Objectives</span>
       <ul>
-        <li>Card content</li>
-        <li>stuffffff</li>
-        <li>more stuff</li>
-        <li>lots of card stuff THIS SHOULD FAIL</li>
+        <li>What makes an element an Isotope?</li>
+        <li>Quarks and Gluons make up what?</li>
+        <li>What was the first element created after the big bang?</li>
       </ul>
     </lrn-card>`);
     const element3 = await fixture(html` <lrn-card type="question">
       <span slot="header">Unit 1</span>
       <span slot="subheader">Did you know?</span>
-      <p>Walter White used high school chemistry equipment to cook Meth.</p>
+      <p>Walter White used High School Chemistry Equipment to cook Meth?</p>
     </lrn-card>`);
     expect(element.type).to.equal('science');
     expect(element.icon).to.equal('beaker');
