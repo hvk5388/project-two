@@ -6,14 +6,14 @@ import '../src/app.js';
 describe('LearningCard', () => {
   let element;
   beforeEach(async () => {
-    element = await fixture(html` <lrn-card type="objective">
-      <span slot="header">Project 2: Learning Card</span>
+    element = await fixture(html` <lrn-card type="science">
+      <span slot="header">Science Card</span>
       <span slot="subheader">Test Subheader</span>
       <p>Whatever</p>
       <ul>
-        <li>I</li>
-        <li>Hope></li>
-        <li>This Works</li>
+        <li>Tests</li>
+        <li>Blow</li>
+        <li>Cock</li>
       </ul>
     </lrn-card>`);
   });
@@ -22,7 +22,7 @@ describe('LearningCard', () => {
     const h1 = element.shadowRoot.querySelector('h1 slot');
     expect(h1).to.exist;
     expect(h1.assignedElements({ flat: true })[0].innerText).to.equal(
-      'Project 2: Learning Card'
+      'Science Card'
     );
   });
 
@@ -58,6 +58,29 @@ describe('LearningCard', () => {
       expect(element.type).to.equal('question');
       expect(element.icon).to.equal('question');
     }, 100);
+  });
+
+  it('check card content', async () => {
+    const element2 = await fixture(html` <lrn-card type="objective">
+      <span slot="header">Unit 1</span>
+      <span slot="subheader">Learning Objectives</span>
+      <ul>
+        <li>What makes an element an Isotope?</li>
+        <li>Quarks and Gluons make up what?</li>
+        <li>What was the first element created after the big bang?</li>
+      </ul>
+    </lrn-card>`);
+    const element3 = await fixture(html` <lrn-card type="question">
+      <span slot="header">Unit 1</span>
+      <span slot="subheader">Did you know?</span>
+      <p>Walter White used High School Chemistry Equipment to cook Meth?</p>
+    </lrn-card>`);
+    expect(element.type).to.equal('science');
+    expect(element.icon).to.equal('beaker');
+    expect(element2.type).to.equal('objective');
+    expect(element2.icon).to.equal('lightbulb');
+    expect(element3.type).to.equal('question');
+    expect(element3.icon).to.equal('question');
   });
 
   it('passes the a11y audit', async () => {
