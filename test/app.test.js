@@ -11,15 +11,15 @@ describe('LearningCard', () => {
       <span slot="subheader">Test Subheader</span>
       <p>Whatever</p>
       <ul>
-        <li>I</li>
-        <li>Hope></li>
-        <li>This Works</li>
+        <li>Learning Objectives</li>
+        <li>Chem Connection</li>
+        <li>Did You Know?</li>
       </ul>
     </lrn-card>`);
   });
 
   it('renders main header', () => {
-    const h1 = element.shadowRoot.querySelector('h1 slot');
+    const h1 = element.shadowRoot.querySelector('h1');
     expect(h1).to.exist;
     expect(h1.assignedElements({ flat: true })[0].innerText).to.equal(
       'Project 2: Learning Card'
@@ -27,7 +27,7 @@ describe('LearningCard', () => {
   });
 
   it('renders the sub header', () => {
-    const h2 = element.shadowRoot.querySelector('h2 slot');
+    const h2 = element.shadowRoot.querySelector('h2');
     expect(h2).to.exist;
     expect(h2.assignedElements({ flat: true })[0].innerText).to.equal(
       'Test Subheader'
