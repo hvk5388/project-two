@@ -6,28 +6,28 @@ import '../src/app.js';
 describe('LearningCard', () => {
   let element;
   beforeEach(async () => {
-    element = await fixture(html` <lrn-card type="objective">
-      <span slot="header">Project 2: Learning Card</span>
+    element = await fixture(html` <lrn-card type="science">
+      <span slot="header">Science Card</span>
       <span slot="subheader">Test Subheader</span>
       <p>Whatever</p>
       <ul>
-        <li>Learning Objectives</li>
-        <li>Chem Connection</li>
-        <li>Did You Know?</li>
+        <li>Tests</li>
+        <li>Blow</li>
+        <li>Cock</li>
       </ul>
     </lrn-card>`);
   });
 
   it('renders main header', () => {
-    const h1 = element.shadowRoot.querySelector('h1');
+    const h1 = element.shadowRoot.querySelector('h1 slot');
     expect(h1).to.exist;
     expect(h1.assignedElements({ flat: true })[0].innerText).to.equal(
-      'Project 2: Learning Card'
+      'Science Card'
     );
   });
 
   it('renders the sub header', () => {
-    const h2 = element.shadowRoot.querySelector('h2');
+    const h2 = element.shadowRoot.querySelector('h2 slot');
     expect(h2).to.exist;
     expect(h2.assignedElements({ flat: true })[0].innerText).to.equal(
       'Test Subheader'
@@ -41,7 +41,7 @@ describe('LearningCard', () => {
 
     const list = element.querySelector('ul');
     expect(list).to.exist;
-    expect(list.children.length).to.equal(3);
+    expect(list.children.length).to.equal(1);
   });
 
   it('checks updatedProperties', () => {
@@ -58,6 +58,29 @@ describe('LearningCard', () => {
       expect(element.type).to.equal('question');
       expect(element.icon).to.equal('question');
     }, 100);
+  });
+
+  it('check card properties', async () => {
+    const element2 = await fixture(html` <lrn-card type="objective">
+      <span slot="header">Unit 1</span>
+      <ul>
+        <li>Card content</li>
+        <li>stuffffff</li>
+        <li>more stuff</li>
+        <li>lots of card stuff THIS SHOULD FAIL</li>
+      </ul>
+    </lrn-card>`);
+    const element3 = await fixture(html` <lrn-card type="question">
+      <span slot="header">Unit 1</span>
+      <span slot="subheader">Did you know?</span>
+      <p>Walter White used high school chemistry equipment to cook Meth.</p>
+    </lrn-card>`);
+    expect(element.type).to.equal('science');
+    expect(element.icon).to.equal('beaker');
+    expect(element2.type).to.equal('objective');
+    expect(element2.icon).to.equal('lightbulb');
+    expect(element3.type).to.equal('question');
+    expect(element3.icon).to.equal('question');
   });
 
   it('passes the a11y audit', async () => {
