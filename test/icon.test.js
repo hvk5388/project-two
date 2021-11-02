@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
 import '../src/app.js';
+import '../src/LearningIcon.js';
 
 describe('LearningCard', () => {
   let element;
