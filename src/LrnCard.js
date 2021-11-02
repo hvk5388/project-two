@@ -53,7 +53,7 @@ export class LrnCard extends SimpleColors {
       }
     });
   }
-
+  /*
   // Lit life-cycle; this fires the 1st time the element is rendered on the screen
   // this is a sign it is safe to make calls to this.shadowRoot
   firstUpdated(changedProperties) {
@@ -74,6 +74,7 @@ export class LrnCard extends SimpleColors {
     super.disconnectedCallback();
   }
 
+  */
   // CSS - specific to Lit
 
   static get styles() {
