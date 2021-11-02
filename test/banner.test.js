@@ -2,15 +2,14 @@ import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
 import '../src/app.js';
+import '../src/LearningCardBanner.js';
 
 describe('LearningCard', () => {
   let element;
   beforeEach(async () => {
-    element = await fixture(html`<learning-card-banner
-    type="science"
-  >
-  <p>TESTING HEADER</p>
-  </learning-card-banner>`);
+    element = await fixture(html`<learning-card-banner type="science">
+      <p>TESTING HEADER</p>
+    </learning-card-banner>`);
   });
   it('renders the header element', () => {
     const header = element.shadowRoot.querySelector('slot');
