@@ -43,9 +43,9 @@ describe('LearningCard', () => {
     setTimeout(() => {
       expect(element.type).to.equal('objective');
     }, 100);
-    element.type = 'question';
+    element.type = 'fact';
     setTimeout(() => {
-      expect(element.type).to.equal('question');
+      expect(element.type).to.equal('fact');
     }, 100);
   });
 
@@ -58,7 +58,7 @@ describe('LearningCard', () => {
     setTimeout(() => {
       expect(element).shadowDom.to.be.accessible();
     }, 100);
-    element.type = 'question';
+    element.type = 'fact';
     setTimeout(() => {
       expect(element).shadowDom.to.be.accessible();
     }, 100);

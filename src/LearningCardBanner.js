@@ -78,7 +78,7 @@ export class LearningCardBanner extends SimpleColors {
         <learning-icon type="${this.type}"></learning-icon>
         <div id="banner">
           <div id="header">
-            <slot> </slot>
+            <slot></slot>
           </div>
         </div>
       </div>
