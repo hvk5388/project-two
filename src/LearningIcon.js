@@ -1,9 +1,5 @@
 import { css, html } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
-/* 
-import {fixture, expect } from '@open-wc/testing';
-import './src/app.js';
-*/
 
 const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
 const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
@@ -87,8 +83,6 @@ export class LearningIcon extends SimpleColors {
       `,
     ];
   }
-
-  // Issue with rendering Icons here
 
   render() {
     return html`
